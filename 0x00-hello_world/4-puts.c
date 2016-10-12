@@ -4,7 +4,7 @@
  */
 
 /**
- *main
+ *main - entry point
  *print a string followed by a new line using puts
  *Return: 0
  */

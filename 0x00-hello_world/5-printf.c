@@ -4,7 +4,7 @@
  */
 
 /**
- *main
+ *main - entry point
  *prints a string and new line using printf
  *Return: 0
  */
