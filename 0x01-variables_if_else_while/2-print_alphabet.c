@@ -11,9 +11,9 @@
  */
 int main(void)
 {
-	char c = 'a';
+	char c = 97;
 
-	while (c <= 'z')
+	while (c <= 122)
 	{
 		putchar(c);
 		c++;
