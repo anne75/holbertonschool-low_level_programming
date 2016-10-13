@@ -1,11 +1,11 @@
 #include <stdio.h>
 /*
- *print all numbers from 0 to 99 in order followed by , using only putchar
+ *print all numbers from 0 to 99 in order followed by , using only p...
  */
 
 /**
  *main - entry point
- *spits out 0, 1, ..., 99 using only putchar 5 times
+ *spits out 0, 1, ..., 99 using only p... 5 times
  *Return: 0
  */
 int main(void)
