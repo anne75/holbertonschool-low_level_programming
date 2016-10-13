@@ -1,6 +1,6 @@
 #include <stdio.h>
 /*
- * print the alphabet using only putchar
+ * print the alphabet using only
  */
 
 /**
