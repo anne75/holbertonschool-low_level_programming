@@ -1,7 +1,7 @@
 #include <stdio.h>
 /*
  *print all different combinations from 0 to 99 in order followed by ,
- *using only putchar
+ *using only p...
  */
 
 /**
