@@ -11,7 +11,7 @@
  */
 int main(void)
 {
-	char c = 97;
+	int c = 97;
 
 	while (c <= 122)
 	{
