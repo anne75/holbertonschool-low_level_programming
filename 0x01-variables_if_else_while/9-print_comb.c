@@ -1,11 +1,11 @@
 #include <stdio.h>
 /*
- *print all single digits in order followed by , using only putchar
+ *print all single digits in order followed by , using only p...
  */
 
 /**
  *main - entry point
- *spits out 0, 1, ..., 9 using only putchar 4 times
+ *spits out 0, 1, ..., 9 using only p... 4 times
  *Return: 0
  */
 int main(void)
