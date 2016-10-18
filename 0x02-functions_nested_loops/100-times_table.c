@@ -32,7 +32,7 @@ void print_times_table(int n)
 				if (p >= 10)
 				{
 					_putchar('0' + (p - 10) / 10);
-					p = p - 10 - ((p - 10)/ 10) * 10;
+					p = p - 10 - ((p - 10) / 10) * 10;
 				}
 				else
 				{
