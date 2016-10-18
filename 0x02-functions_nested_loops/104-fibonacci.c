@@ -31,7 +31,7 @@ int main(void)
 		}
 		tmp2front = tmp0front + tmp1front + r;
 		if (tmp2front > 0)
-			printf("%li%li", tmp2front, tmp2back);
+			printf("%li%07li", tmp2front, tmp2back);
 		else
 			printf("%li", tmp2back);
 		tmp0front = tmp1front;
