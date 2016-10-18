@@ -12,45 +12,39 @@ void print_times_table(int n)
 
 	if (n >= 0 && n <= 15)
 	{
-		a = 0;
-		while (a <= n)
+		for (a = 0; a <= n; a++)
 		{
-			b = 0;
-			while (b <= n)
+			for (b = 0; b <= n; b++)
 			{
 				if (b > 0)
 					_putchar(' ');
 				p = a * b;
-				if (p < 10)
+				if (p >= 100)
 				{
-					if (b > 0)
-					{
-						_putchar(' ');
-						_putchar(' ');
-					}
-					_putchar('0' + p);
+					_putchar('0' + p / 100);
+					p = p - (p / 100) * 100 + 10;
 				}
 				else
 				{
-					if (p < 100 && b > 0)
-					{
+					if (b > 0)
 						_putchar(' ');
-					}
-					else
-					{
-						_putchar('0' + p / 100);
-						p = p - (p / 100) * 100;
-					}
-					_putchar('0' + p / 10);
-					_putchar('0' + p % 10);
 				}
+				if (p >= 10)
+				{
+					_putchar('0' + (p - 10) / 10);
+					p = p - 10 - ((p - 10)/ 10) * 10;
+				}
+				else
+				{
+					if (b > 0)
+						_putchar(' ');
+				}
+				_putchar('0' + p);
 				if ((a <  n && b == n) || (a == n && b == n))
 					_putchar('\n');
 				else
 					_putchar(',');
-				b++;
 			}
-			a++;
 		}
 	}
 }
