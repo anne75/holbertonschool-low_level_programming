@@ -12,7 +12,7 @@ int main(void)
 
 	i = 0;
 	total = 0;
-	while (i < 10)
+	while (i < 1024)
 	{
 		if ((i % 3) == 0 || (i % 5) == 0)
 			total += i;
