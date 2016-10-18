@@ -1,45 +1,29 @@
 #include <stdio.h>
 #include "holberton.h"
 
-/*prototypes are in holberton.h*/
 
 /**
- * main - entry point
+ * main - entry point display fibonacci sequence
  *
  * Return: 0
  */
 int main(void)
 {
 	int i;
+	long int tmpa, tmpb, tmpc;
 
-	i = 0;
+	i = 2;
+	tmpa = 1;
+	tmpb = 2;
+	printf("%ld, %ld, ", tmpa, tmpb);
 	while (i < 49)
 	{
-		printf("%lu, ", fibo(i));
+		tmpc = tmpa + tmpb;
+		printf("%ld, ", tmpc);
+		tmpa = tmpb;
+		tmpb = tmpc;
 		i++;
 	}
-	printf("%lu\n", fibo(i));
+	printf("%ld\n", tmpa + tmpb);
 	return (0);
-}
-
-/**
- * fibo - return ith fibonacci number
- * @i: int, return ith number in series
- *
- * Return: int, value of Fibonacci series
- */
-long int fibo(int i)
-{
-	long int d;
-
-	if (i == 0)
-	{
-		return (1);
-	}
-	if (i == 1)
-	{
-		return (2);
-	}
-	d = fibo(i - 1) + fibo(i - 2);
-	return (d);
 }
