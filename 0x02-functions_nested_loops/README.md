@@ -1,0 +1,1 @@
+This directory is about nested loops and an ontroduction of functions in c.
