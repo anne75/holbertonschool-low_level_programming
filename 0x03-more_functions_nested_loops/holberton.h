@@ -27,8 +27,6 @@ void print_diagonal(int);
 
 /*question 8, print square with #*/
 void print_square(int);
-/*helper to print one line*/
-void printsq(int);
 
 /*question 10, print a triangle*/
 void print_triangle(int size);
