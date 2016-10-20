@@ -8,33 +8,26 @@
  */
 void print_diagonal(int n)
 {
-	int i;
+	int i, a;
 
 	if (n > 0)
 	{
 		i = 1;
 		while (i <= n)
-			printdiag(i++);
+		{
+			a = i;
+			while (a > 1)
+			{
+				_putchar(' ');
+				a--;
+			}
+			_putchar('\\');
+			_putchar('\n');
+			i++;
+		}
 	}
 	else
 	{
 		_putchar('\n');
 	}
-}
-
-/**
- * printdiag - helper function prints 1 line
- * @i: position to print \, i should be > 0
- * Return: void
- */
-void printdiag(int i)
-{
-
-	while (i > 1)
-	{
-		_putchar(' ');
-		i--;
-	}
-	_putchar('\\');
-	_putchar('\n');
 }
