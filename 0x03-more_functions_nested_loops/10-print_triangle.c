@@ -12,7 +12,7 @@ void print_triangle(int size)
 	i = 1;
 	while (i <= size)
 	{
-		printc(size-i, ' ');
+		printc(size - i, ' ');
 		printc(i, '#');
 		_putchar('\n');
 		i++;
