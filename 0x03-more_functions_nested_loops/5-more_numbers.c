@@ -7,39 +7,26 @@
  */
 void more_numbers(void)
 {
-	int i;
+	int a, i;
 
-	i = 0;
-	while (i < 10)
+	a = 0;
+	while (a < 10)
 	{
-		printline(14);
-		i++;
-	}
-}
-
-/**
- * printline - print 0 to c
- * @c: end of print
- * Return: void
- */
-void printline(int c)
-{
-	int i;
-
-	i = 0;
-
-	while (i <= c)
-	{
-		if (i < 10)
+		i = 0;
+		while (i <= 14)
 		{
-			_putchar('0' + i);
+			if (i < 10)
+			{
+				_putchar('0' + i);
+			}
+			else
+			{
+				_putchar('0' + i / 10);
+				_putchar('0' + i % 10);
+			}
+			i++;
 		}
-		else
-		{
-			_putchar('0' + i / 10);
-			_putchar('0' + i % 10);
-		}
-		i++;
+		_putchar('\n');
+		a++;
 	}
-	_putchar('\n');
 }
