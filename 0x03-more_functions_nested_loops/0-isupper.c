@@ -1,10 +1,10 @@
 #include "holberton.h"
 
 /**
- * _isupper - lay man version of isupper
+ * _isupper - lay man version of isupper()
  * @c: character to check for upper caseness
  * checks wether input is upper case or not
- * Return: 1 if c is uppercase o otherwise
+ * Return: 1 if c is uppercase 0 otherwise
  */
 int _isupper(int c)
 {
