@@ -12,7 +12,7 @@ void more_numbers(void)
 	i = 0;
 	while (i < 10)
 	{
-		print_line(14);
+		printline(14);
 		i++;
 	}
 }
