@@ -24,12 +24,19 @@ void print_triangle(int size)
 {
 	int i;
 
-	i = 1;
-	while (i <= size)
+	if (size > 0)
 	{
-		printc(size - i, ' ');
-		printc(i, '#');
+		i = 1;
+		while (i <= size)
+		{
+			printc(size - i, ' ');
+			printc(i, '#');
+			_putchar('\n');
+			i++;
+		}
+	}
+	else
+	{
 		_putchar('\n');
-		i++;
 	}
 }
