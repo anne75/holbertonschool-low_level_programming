@@ -11,9 +11,9 @@ Questions answered are the following:
 8. Write a function that prints every minute of the day of Jack Bauer, starting from 00:00 to 23:59.  
 9. Write a function that prints the 9 times table, starting with 0.  
 10. Write a function that adds two integer and returns the result.  
-11. Write a function that prints all natural numbers from n to 98, followed by a new line.
-12. Write a function that prints the n times table, starting with 0.  
-13. The sum of these multiples is 23. Write a program that computes and prints the sum of all the multiples of 3 or 5 below 1024   
+11. Write a function that prints all natural numbers from n to 98, followed by a new line.  
+12. Write a function that prints the n times table, starting with 0.    
+13. Write a program that computes and prints the sum of all the multiples of 3 or 5 below 1024   
 14. Write a program that prints the first 50 Fibonacci numbers, starting with 1 and 2, followed by a new line.  
 15. By considering the terms in the Fibonacci sequence whose values do not exceed 4,000,000, write a program that finds and prints the sum of the even-valued terms.  
 16. Write a program that finds and prints the first 98 Fibonacci numbers, starting with 1 and 2, followed by a new line.  
