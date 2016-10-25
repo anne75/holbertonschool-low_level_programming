@@ -8,17 +8,14 @@
  */
 int _atoi(char *s)
 {
-	int countp, countn, i, number;
+	int countn, i, number;
 
-	countp = 0;
 	countn = 0;
 	number = 0;
 
 	i = 0;
 	while ((s[i] < '0' || s[i] > '9') && s[i] != '\0')
 	{
-		if (s[i] == '+')
-			countp++;
 		if (s[i] == '-')
 			countn++;
 		i++;
@@ -30,7 +27,7 @@ int _atoi(char *s)
 		i++;
 	}
 
-	if (countp < countn && number != 0)
+	if ((countn % 2 != 0)  && number != 0)
 		number = -number;
 
 	return (number);
