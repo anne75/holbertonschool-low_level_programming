@@ -23,11 +23,11 @@ int _atoi(char *s)
 
 	while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
 	{
-		number = 10 * number + (s[i] - '0');
+		number = 10 * number - (s[i] - '0');
 		i++;
 	}
 
-	if ((countn % 2 != 0)  && number != 0)
+	if ((countn % 2 == 0)  && number != 0)
 		number = -number;
 
 	return (number);
