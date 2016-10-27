@@ -4,7 +4,7 @@
 /**
  * sep - check if a char is a word separator
  * @c: char to check
- * Return 1 if true, 0 otherwise
+ * Return: 1 if true, 0 otherwise
  */
 int sep(char c)
 {
@@ -23,7 +23,7 @@ int sep(char c)
  */
 int _islower(char c)
 {
-	if (c >= 'a' && c<= 'z')
+	if (c >= 'a' && c <= 'z')
 		return (1);
 	return (0);
 }
