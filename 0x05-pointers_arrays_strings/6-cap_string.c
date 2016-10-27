@@ -40,9 +40,14 @@ char *cap_string(char *s)
 
 	i = 0;
 
+	if (_islower(*s) == 1)
+	{
+		*s = *s -'a' + 'A';
+		i++;
+	}
+
 	while (*(s + i) != '\0')
 	{
-		printf("CHAR %c, sep? %i, next %c\n", *(s + i), sep(*(s + i)), *(s + i + 1));
 		if (sep(*(s + i)) == 1 && *(s + i + 1) != '\0' &&
 			_islower(*(s + i + 1)) == 1)
 		{
