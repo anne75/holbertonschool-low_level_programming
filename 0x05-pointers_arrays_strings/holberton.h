@@ -25,3 +25,12 @@ char *string_toupper(char *);
 int sep(char);
 int _islower(char);
 char *cap_string(char *);
+
+/*question 7*/
+char *leet(char *);
+
+/*question 8*/
+char *rot13(char *);
+
+/*question 9*/
+void print_number(int n);
