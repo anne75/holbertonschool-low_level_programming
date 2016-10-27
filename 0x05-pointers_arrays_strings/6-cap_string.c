@@ -42,7 +42,7 @@ char *cap_string(char *s)
 
 	if (_islower(*s) == 1)
 	{
-		*s = *s -'a' + 'A';
+		*s = *s - 'a' + 'A';
 		i++;
 	}
 
