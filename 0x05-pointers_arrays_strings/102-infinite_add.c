@@ -39,7 +39,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	retenue = 0;
 	while (size_r > 0)
 	{
-		if (l1 < 0 && l2 < 0)
+		if (l1 <= 0 && l2 <= 0)
 		{
 			*(r + size_r - 1) = retenue + '0';
 			return (r + size_r - 1);
