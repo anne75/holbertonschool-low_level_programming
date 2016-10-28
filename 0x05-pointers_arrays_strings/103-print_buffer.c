@@ -2,14 +2,25 @@
 #include <stdio.h>
 
 
-
+/**
+ * _min - get minimum
+ * @a: an int
+ * @b: an int
+ * Return: min value, a if tie
+ */
 int _min(int a, int b)
 {
 	if (a <= b)
-		return a;
-	return b;
+		return (a);
+	return (b);
 }
 
+
+/**
+ * printable - return value to print
+ * @a: char to analyse
+ * Return: value to print, a or .
+ */
 char printable(char a)
 {
 	if (a >= ' ' && a <= '~')
@@ -17,8 +28,11 @@ char printable(char a)
 	return ('.');
 }
 
-
-
+/**
+ * print_buffer - prints stuff
+ * @b: string to print
+ * @size: size of string to print
+ */
 void print_buffer(char *b, int size)
 {
 	int i, j, res;
@@ -31,14 +45,20 @@ void print_buffer(char *b, int size)
 		j = 0;
 		while (j < res)
 		{
-			printf( " %02x%02x",*(b + i + j),*(b +  i + j + 1));
-			j += 2;
+			if (j % 2 == 0)
+				printf(" %02x", *(b + i + j));
+			else
+				printf("%02x", *(b + i + j));
+			j ++;
 		}
 		printf(" ");
 		while (j < 10)
 		{
-			printf( "     ");
-			j += 2;
+			if (j % 2 == 0)
+				printf("   ");
+			else
+				printf("  ");
+			j ++;
 		}
 		j = 0;
 		while (j < res)
