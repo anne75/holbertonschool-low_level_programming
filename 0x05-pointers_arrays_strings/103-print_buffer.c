@@ -42,7 +42,7 @@ void print_buffer(char *b, int size)
 		printf("\n");
 	while (i < size)
 	{
-		printf("%08x:", i);
+		printf("%8.8x:", i);
 		res = _min(10, size - i);
 		j = 0;
 		while (j < res)
