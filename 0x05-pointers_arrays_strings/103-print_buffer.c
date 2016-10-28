@@ -38,6 +38,8 @@ void print_buffer(char *b, int size)
 	int i, j, res;
 
 	i = 0;
+	if (size <= 0)
+		printf("\n");
 	while (i < size)
 	{
 		printf("%08x:", i);
@@ -46,19 +48,17 @@ void print_buffer(char *b, int size)
 		while (j < res)
 		{
 			if (j % 2 == 0)
-				printf(" %02x", *(b + i + j));
-			else
-				printf("%02x", *(b + i + j));
-			j ++;
+				printf(" ");
+			printf("%02x", *(b + i + j));
+			j++;
 		}
 		printf(" ");
 		while (j < 10)
 		{
 			if (j % 2 == 0)
-				printf("   ");
-			else
-				printf("  ");
-			j ++;
+				printf(" ");
+			printf("  ");
+			j++;
 		}
 		j = 0;
 		while (j < res)
