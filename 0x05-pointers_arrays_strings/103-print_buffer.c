@@ -66,6 +66,11 @@ void print_buffer(char *b, int size)
 			printf("%c", printable(*(b + i + j)));
 			j++;
 		}
+		while (j < 10)
+		{
+			printf(" ");
+			j++;
+		}
 		printf("\n");
 		i += 10;
 	}
