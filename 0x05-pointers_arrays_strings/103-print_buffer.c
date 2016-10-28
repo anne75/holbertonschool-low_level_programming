@@ -52,7 +52,6 @@ void print_buffer(char *b, int size)
 			printf("%02x", *(b + i + j));
 			j++;
 		}
-		printf(" ");
 		while (j < 10)
 		{
 			if (j % 2 == 0)
@@ -60,6 +59,7 @@ void print_buffer(char *b, int size)
 			printf("  ");
 			j++;
 		}
+		printf(" ");
 		j = 0;
 		while (j < res)
 		{
