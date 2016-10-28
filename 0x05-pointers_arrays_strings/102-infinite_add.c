@@ -32,19 +32,19 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	l2 = _strlen(n2);
 	*(r + size_r - 1) = '\0';
 	size_r--;
-	if (l1 > size_r || l2 > size_r)
+	if (l1 > size_r || l2 > size_r || size_r == 0)
 		return (0);
-	if (l1 == size_r && l2 == size_r && (*n1 + *n2) > 9)
+	if (l1 == size_r && l2 == size_r && (*n1 - '0' + *n2 - '0') > 9)
 		return (0);
 	retenue = 0;
 	while (size_r > 0)
 	{
-		if (l1 <= 0 && l2 <= 0)
+		if (l1 < 0 && l2 < 0)
 		{
 			*(r + size_r - 1) = retenue + '0';
 			return (r + size_r - 1);
 		}
-		else if (l1 <= 0)
+		else if (l1 < 0)
 		{
 			sum =  *(n2 + l2 - 1) - '0' + retenue;
 		}
@@ -63,7 +63,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		l2--;
 		size_r--;
 	}
-	if (size_r == 0 && l1 <= 0 && l2 <= 0 && retenue = 0)
+	if (size_r == 0 && l1 <= 0 && l2 <= 0 && retenue == 0)
 		return (r);
 	return (0);
 }
