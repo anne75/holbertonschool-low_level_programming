@@ -34,3 +34,12 @@ char *rot13(char *);
 
 /*question 9*/
 void print_number(int n);
+
+/*question10*/
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
+
+/*question 11*/
+void print_buffer(char *b, int size);
+
+/*last question*/
+void print_buffer(char *b, int size);
