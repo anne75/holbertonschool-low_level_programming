@@ -36,34 +36,30 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		return (0);
 	if (l1 == size_r && l2 == size_r && (*n1 - '0' + *n2 - '0') > 9)
 		return (0);
-	retenue = 0;
-	while (size_r > 0)
-	{
-		if (l1 <= 0 && l2 <= 0)
-		{
-			*(r + size_r - 1) = retenue + '0';
-			return (r + size_r - 1);
-		}
-		else if (l1 < 0)
-		{
-			sum =  *(n2 + l2 - 1) - '0' + retenue;
-		}
-		else if (l2 <= 0)
-		{
-			sum  = *(n1 + l1 - 1) - '0' + retenue;
-		}
-		else
-		{
-			sum = *(n1 + l1 - 1) - '0' + *(n2 + l2 - 1) - '0' + retenue;
 
-		}
+	retenue = 0;
+	while (size_r > 0 && (l1 > 0 || l2 > 0))
+	{
+		if (l1 <= 0)
+			sum =  *(n2 + l2 - 1) - '0' + retenue;
+		else if (l2 <= 0)
+			sum  = *(n1 + l1 - 1) - '0' + retenue;
+		else
+			sum = *(n1 + l1 - 1) - '0' + *(n2 + l2 - 1) - '0' + retenue;
 		retenue = sum / 10;
 		*(r + size_r - 1) = sum % 10 + '0';
 		l1--;
 		l2--;
 		size_r--;
 	}
-	if (size_r == 0 && l1 <= 0 && l2 <= 0 && retenue == 0)
-		return (r);
+	if (retenue != 0 && size_r > 0)
+	{
+		*(r + size_r - 1) = retenue + '0';
+		return (r + size_r - 1);
+	}
+	else if (retenue == 0)
+	{
+		return (r + size_r);
+	}
 	return (0);
 }
