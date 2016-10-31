@@ -25,7 +25,25 @@ char *_strchr(char *s, char c)
 	return (NULL);
 }
 
+/**
+ * check_first - check if string in is at the begining of string s
+ * @s: string to check
+ * @in: string to look for
+ * Return: 1 if true, 0 if false
+ */
+int check_first(char *s, char *in)
+{
+	int i;
 
+	i = 0;
+	while (*(s + i) == *(in + i) && *(s + i) != '\0' && *(in + i) != '\0')
+		++i;
+
+	if (*(in + i) == '\0')
+		return (1);
+
+	return (0);
+}
 /**
  * _strstr - finds the first occurrence of the substring needle in the string
  * haystack
@@ -37,24 +55,14 @@ char *_strchr(char *s, char c)
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i;
 	char *start;
 
-	start = _strchr(haystack, *needle);
-	if (start == NULL || *needle == '\0')
-		return (NULL);
-
-	i = 0;
-	while (*(start + i) == *(needle + i)
-	       && *(start + i) != '\0' && *(needle + i) != '\0')
+	while ((start = _strchr(haystack, *needle)) != NULL)
 	{
-
-		i++;
-
+		if (check_first(start, needle) == 1)
+		    return (start);
+		else
+			haystack = start + 1;
 	}
-
-	if (*(needle + i) == '\0')
-		return (start);
-
-	return (0);
+	return (NULL);
 }
