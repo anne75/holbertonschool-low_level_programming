@@ -22,7 +22,7 @@ char *_strchr(char *s, char c)
 	}
 	if (c == '\0')
 		return (s + i);
-	return (0);
+	return (NULL);
 }
 
 
@@ -41,8 +41,8 @@ char *_strstr(char *haystack, char *needle)
 	char *start;
 
 	start = _strchr(haystack, *needle);
-	if (start == 0 || *needle == '\0')
-		return (0);
+	if (start == NULL || *needle == '\0')
+		return (NULL);
 
 	i = 0;
 	while (*(start + i) == *(needle + i)
