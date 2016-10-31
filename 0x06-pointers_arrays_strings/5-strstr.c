@@ -36,6 +36,8 @@ int check_first(char *s, char *in)
 	int i;
 
 	i = 0;
+	if (*in == '\0')
+		return (0);
 	while (*(s + i) == *(in + i) && *(s + i) != '\0' && *(in + i) != '\0')
 		++i;
 
@@ -60,9 +62,8 @@ char *_strstr(char *haystack, char *needle)
 	while ((start = _strchr(haystack, *needle)) != NULL)
 	{
 		if (check_first(start, needle) == 1)
-		    return (start);
-		else
-			haystack = start + 1;
+			return (start);
+		haystack = start + 1;
 	}
 	return (NULL);
 }
