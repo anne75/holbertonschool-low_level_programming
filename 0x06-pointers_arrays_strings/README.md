@@ -5,8 +5,8 @@ More arrays, with 2 dimensions, more pointers, a double one...
 3. Write a function that gets the length of a prefix substring.  
 4. Write a function that searches a string for any of a set of bytes.  
 5. Write a function that locates a substring.  
-6. Write a function that prints the chessboard.  
-7. Write a function that prints the sum of the two diagonals of a square matrix of integers.  
-8. Write a function that sets the value of a pointer to a char.  
-9. Create a file that contains the password for the crackme2 executable.
+7. Write a function that prints the chessboard.  
+8. Write a function that prints the sum of the two diagonals of a square matrix of integers.  
+9. Write a function that sets the value of a pointer to a char.  
+10. Create a file that contains the password for the crackme2 executable.
 
