@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 
 /**
  * _strchr - simple version of strchr()
@@ -21,7 +22,7 @@ char *_strchr(char *s, char c)
 	}
 	if (c == '\0')
 		return (s + i);
-	return (0);
+	return (NULL);
 }
 
 
@@ -31,7 +32,8 @@ char *_strchr(char *s, char c)
  * @accept: characters to look for in s
  * walk through s until reaching a point where a char in s is in accept.
  * return a pointer to this byte
- * Return: a pointer to the byte in s that matches one of the bytes in accept
+ * Return: a pointer to the byte in s that matches one of the bytes in accept or
+ * NULL
  */
 char *_strpbrk(char *s, char *accept)
 {
@@ -44,5 +46,5 @@ char *_strpbrk(char *s, char *accept)
 			return (s + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

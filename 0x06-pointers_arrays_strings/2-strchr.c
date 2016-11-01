@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 
 /**
  * _strchr - simple version of strchr()
@@ -21,5 +22,5 @@ char *_strchr(char *s, char c)
 	}
 	if (c == '\0')
 		return (s + i);
-	return (0);
+	return (NULL);
 }
