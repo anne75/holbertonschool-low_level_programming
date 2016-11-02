@@ -1,6 +1,12 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+/**
+ * _strchar - find first location of char in string
+ * @s: string
+ * @c: char
+ * Return: a pointer to the location of the char or NULL
+ */
 /*takes into account c is \0 */
 char *_strchar(char *s, char c)
 {
@@ -11,7 +17,12 @@ char *_strchar(char *s, char c)
 	return (_strchar(s + 1, c));
 }
 
-
+/**
+ * wildcmp - compare 2 strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: 1 if the strings are identical, 0 otherwise
+ */
 int wildcmp(char *s1, char *s2)
 {
 	char *s3;
