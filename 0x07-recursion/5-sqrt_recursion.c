@@ -15,13 +15,14 @@ int _sqrt_help(int a, int b, int n)
 	if ((b - a) < 0)
 		return (-1);
 
-	middle = (b + a + 1) / 2;
+	middle = (b + a) / 2;
 	if (middle * middle == n)
 		return (middle);
 	if (middle * middle < n)
 		return (_sqrt_help(middle + 1, b, n));
 	return (_sqrt_help(a, middle - 1, n));
 }
+
 /**
  * _sqrt_recursion - find the square root of a number using recursion
  * @n: number to get square root from
