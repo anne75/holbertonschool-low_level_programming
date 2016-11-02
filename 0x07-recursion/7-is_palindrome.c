@@ -23,7 +23,7 @@ int _strlen_recursion(char *s)
  */
 int is_help(char *s, int l, int i)
 {
-	if (i >= ((l + 1)/ 2))
+	if (i >= ((l + 1) / 2))
 		return (1);
 	if (*(s + i) != *(s + l - i))
 		return (0);
@@ -40,5 +40,5 @@ int is_palindrome(char *s)
 	int l;
 
 	l = _strlen_recursion(s);
-	return is_help(s, l - 1, 0);
+	return (is_help(s, l - 1, 0));
 }
