@@ -15,7 +15,7 @@ int _sqrt_help(int a, int b, int n)
 	if ((b - a) < 0)
 		return (-1);
 
-	middle = (b + a + 1) / 2;
+	middle = a + (b -a) / 2;
 	if (middle * middle == n)
 		return (middle);
 	if (middle * middle < n)
