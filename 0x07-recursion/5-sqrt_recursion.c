@@ -29,11 +29,6 @@ int _sqrt_help(long a, long b, int n)
 }
 
 /**
- * help2 - basic helper
- * @i: value to try or iterate on
- */
-
-/**
  * _sqrt_recursion - find the square root of a number using recursion
  * @n: number to get square root from
  * Return: sqrt(n) if it is an int, -1 otherwise
