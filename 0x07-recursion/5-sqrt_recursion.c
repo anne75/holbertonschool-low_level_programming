@@ -16,15 +16,12 @@ int _sqrt_help(long a, long b, int n)
 		return (-1);
 
 	middle = a + (b - a) / 2;
-	printf("MIDDLE %ld SQUARED %ld ", middle, middle * middle);
 	if (middle * middle == n)
 		return (middle);
 	if (middle * middle < n)
 	{
-		printf("RIGHT INTER %ld %ld\n", middle + 1, b);
 		return (_sqrt_help(middle + 1, b, n));
 	}
-	printf("LEFT INTER %ld %ld\n", a, middle - 1);
 	return (_sqrt_help(a, middle - 1, n));
 }
 
