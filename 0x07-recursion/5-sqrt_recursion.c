@@ -8,20 +8,30 @@
  * @n: number to get sqrt from, checks on n done elsewhere.
  * Return: sqrt(n) if it exists, -1 otherwise
  */
-int _sqrt_help(int a, int b, int n)
+int _sqrt_help(long a, long b, int n)
 {
-	int middle;
+	long middle;
 
-	if ((b - a) < 0)
+	if (b < a)
 		return (-1);
 
-	middle = a + (b -a) / 2;
+	middle = a + (b - a) / 2;
+	printf("MIDDLE %ld SQUARED %ld ", middle, middle * middle);
 	if (middle * middle == n)
 		return (middle);
 	if (middle * middle < n)
+	{
+		printf("RIGHT INTER %ld %ld\n", middle + 1, b);
 		return (_sqrt_help(middle + 1, b, n));
+	}
+	printf("LEFT INTER %ld %ld\n", a, middle - 1);
 	return (_sqrt_help(a, middle - 1, n));
 }
+
+/**
+ * help2 - basic helper
+ * @i: value to try or iterate on
+ */
 
 /**
  * _sqrt_recursion - find the square root of a number using recursion
