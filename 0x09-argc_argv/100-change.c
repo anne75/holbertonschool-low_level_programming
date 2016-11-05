@@ -41,8 +41,6 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	n = _atoi(argv[1]);
-	if (n < 0)
-		return (0);
 	count = 0;
 	i = 0;
 	while (n > 0)
