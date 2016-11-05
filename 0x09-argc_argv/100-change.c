@@ -6,9 +6,9 @@
  * assume the string consists only of integers or starts with something else
  * Return: positive integer or -1
  */
-int _atoi(char *s)
+long int _atoi(char *s)
 {
-	int number;
+	long int number;
 
 	number = 0;
 	if (*s < '0' || *s > '9')
@@ -18,7 +18,9 @@ int _atoi(char *s)
 		number = number * 10 + (*s - '0');
 		s++;
 	}
-	return (number);
+	if (*s == '\0')
+		return (number);
+	return (-1);
 }
 
 /**
@@ -40,7 +42,7 @@ int main(int argc, char *argv[])
 	}
 	n = _atoi(argv[1]);
 	if (n < 0)
-		return (1);
+		return (0);
 	count = 0;
 	i = 0;
 	while (n > 0)
