@@ -20,7 +20,9 @@ int _atoi(char *s)
 		number = number * 10 + (*s - '0');
 		s++;
 	}
-	return (number);
+	if (*s == '\0')
+		return (number);
+	return (-1);
 }
 
 /**
@@ -35,13 +37,6 @@ int main(int argc, char *argv[])
 
 	sum = 0;
 	i = 1;
-	while (i < argc && _atoi(argv[i]) == -1)
-		i++;
-	if (i > 1)
-	{
-		puts("Error");
-		return (1);
-	}
 	while (i < argc)
 	{
 		n = _atoi(argv[i]);
