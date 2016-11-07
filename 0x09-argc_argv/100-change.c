@@ -24,7 +24,7 @@ long int _atoi(char *s)
 }
 
 /**
- * main - greedy algorithm, minimal number of coins for change
+ * main - division, minimal number of coins for change
  * @argc: number of arguments
  * @argv: list of arguments, given as strings
  * Return: 1 if not 2 args are given, 0 otherwise
@@ -43,15 +43,15 @@ int main(int argc, char *argv[])
 	n = _atoi(argv[1]);
 	count = 0;
 	i = 0;
-	while (n > 0)
+	if (n > 0)
 	{
-		if (n >= coins[i])
+		while (i < 4 && n > 1)
 		{
-			n = n - coins[i];
-			count += 1;
-			i--;
+			count += n / coins[i];
+			n = n % coins[i];
+			i++;
 		}
-		i++;
+		count += n;
 	}
 	printf("%li\n", count);
 	return (0);
