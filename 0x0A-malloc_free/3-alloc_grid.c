@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * alloc_grid - return a pointer to a newly created 2 dim integer grid
@@ -20,7 +21,7 @@ int **alloc_grid(int width, int height)
 	i = 0;
 	while (i < height)
 	{
-		a[i] = malloc(width * sizeof(int));
+		a[i] = malloc(width * sizeof(**a));
 		if (a[i] == NULL)
 			return (NULL);
 		i++;
@@ -31,7 +32,10 @@ int **alloc_grid(int width, int height)
 	{
 		j = 0;
 		while (j < width)
-			a[i][j++] = 0;
+		{
+			a[i][j] = 0;
+			j++;
+		}
 		i++;
 	}
 
