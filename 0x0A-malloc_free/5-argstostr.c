@@ -20,7 +20,7 @@ int _strlen(char *s)
 
 
 /**
- * argtostr - concatenates all the arguments of program.
+ * argstostr - concatenates all the arguments of program.
  * @ac: number of arguments, includeing name of program
  * @av: array of string arguments
  * Return: pointer to string created, all arguments together \n separated

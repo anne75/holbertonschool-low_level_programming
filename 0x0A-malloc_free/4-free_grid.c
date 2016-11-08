@@ -3,7 +3,7 @@
 
 /**
  * free_grid - frees a 2D grid created in 3-...
- * @grid - 2D matrix
+ * @grid: 2D matrix
  * @height: number of rows
  * Return: void
  */
