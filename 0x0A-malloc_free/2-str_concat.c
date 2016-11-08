@@ -18,12 +18,12 @@ int _strlen(char *s)
 
 
 /**
- * string_concat - concatenate 2 strings
+ * str_concat - concatenate 2 strings
  * @s1: front string
  * @s2: back string
  * Return: pointer to newly created string - NULL if impossible
  */
-char *string_concat(char *s1, char *s2)
+char *str_concat(char *s1, char *s2)
 {
 	int l1, l2, i;
 	char *s;
