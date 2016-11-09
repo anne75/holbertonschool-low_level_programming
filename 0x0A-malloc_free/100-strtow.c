@@ -13,6 +13,8 @@ int getnbw(char *str)
 	nbword = 0;
 	while (*(str + i) != '\0')
 	{
+		if (i == 0 && *str != ' ')
+			nbword++;
 		if (*(str + i) == ' ' && *(str + i + 1) != ' ' &&
 		    *(str + i + 1) != '\0')
 			++nbword;
@@ -65,7 +67,7 @@ char *getw(char *s, char *dest, int l)
  */
 char **strtow(char *str)
 {
-	int i, j, l, nbword;
+	int i, j, l, nbword, word;
 	char **s;
 
 	nbword = getnbw(str);
@@ -77,12 +79,20 @@ char **strtow(char *str)
 
 	i = 0;
 	j = 0;
+	word = 0;
 	while (i < nbword)
 	{
+		if (j == 0 && *str != ' ')
+			word = 1;
 		if (*(str + j) == ' ' && *(str + j + 1) != ' ' &&
 		    *(str + j + 1) != '\0')
 		{
 			++j;
+			word = 1;
+		}
+		if (word == 1)
+		{
+			word = 0;
 			l = _strw(str + j);
 			s[i] = malloc((l + 1) * sizeof(**s));
 			if (s[i] == NULL)
