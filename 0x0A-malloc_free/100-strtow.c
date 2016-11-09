@@ -69,6 +69,8 @@ char **strtow(char *str)
 	char **s;
 
 	nbword = getnbw(str);
+	if (nbword == 0)
+		return (NULL);
 	s = malloc((nbword + 1) * sizeof(*s));
 	if (s == NULL)
 		return (NULL);
