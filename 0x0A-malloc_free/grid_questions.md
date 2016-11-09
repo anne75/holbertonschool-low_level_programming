@@ -17,7 +17,7 @@ I create the grid as above but I set all values to 0 in a second time, in a sepa
 I create a grid by first `malloc` the array of row pointers. Then I `malloc` the whole grid, assigning it to the first element
 of the array. I then loop throught it to reestablish the bracket notation. In this case, the whole grid is in a single continuous
 space in memory.  
-I had no idea why my code was not working yesterday, cases to create a 0*0 grid was done, 1*n, n*1, negative values as well...
+I had no idea why my code was not working yesterday, cases to handle a 0x0 grid was done, 1xn, nx1, negative values as well...
 so I went trying bigger and bigger sizes. I used this code:   
 ```
 /**                                                                                                                                                   
