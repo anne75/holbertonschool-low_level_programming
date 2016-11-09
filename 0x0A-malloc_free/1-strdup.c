@@ -30,15 +30,18 @@ char *_strdup(char *str)
 	int l, i;
 	char *s;
 
-	l = _strlen(str);
-	if (l == 0)
+	if (str == NULL)
 		return (NULL);
+	l = _strlen(str);
 	s = malloc((l + 1) * sizeof(char));
 	if (s == NULL)
 		return (NULL);
 
 	i = 0;
 	while (i <= l)
-		*(s + i++) = *str++;
+	{
+		*(s + i) = *(str + i);
+		i++;
+	}
 	return (s);
 }
