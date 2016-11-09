@@ -45,6 +45,7 @@ int **alloc_grid(int width, int height)
 	}
 	return (a);
 }
+
 /*This is not passing the free check unfortunately*/
 /* *a = malloc(sizeof(int) * width * height);
  *   if (*a == NULL)
