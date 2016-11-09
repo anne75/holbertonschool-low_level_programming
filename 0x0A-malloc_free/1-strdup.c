@@ -4,7 +4,7 @@
 /**
  * _strlen - I cannot use strlen()
  * @s: string
- * Return: return size of string \0 included
+ * Return: return size of string
  */
 int _strlen(char *s)
 {
@@ -12,8 +12,8 @@ int _strlen(char *s)
 
 	i = 0;
 
-	while (*(s + i++) != '\0')
-		;
+	while (*(s + i) != '\0')
+		i++;
 	return (i);
 }
 
@@ -31,7 +31,7 @@ char *_strdup(char *str)
 	char *s;
 
 	l = _strlen(str);
-
+	printf("%i\n", l);
 	s = malloc((l + 1) * sizeof(char));
 	if (s == NULL)
 		return (NULL);
