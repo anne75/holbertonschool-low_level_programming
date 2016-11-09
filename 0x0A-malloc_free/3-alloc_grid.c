@@ -37,9 +37,8 @@ int **alloc_grid(int width, int height)
 {
 	int **a, i, j;
 
-	if (width <= 0 || height <= 0)
+	if (width <= 0 || height <= 0 || height * width < 400000)
 		return (NULL);
-
 	a = malloc(height * sizeof(*a));
 	if (a == NULL)
 		return (NULL);
@@ -47,20 +46,16 @@ int **alloc_grid(int width, int height)
 	i = 0;
 	while (i < height)
 	{
-		printf("%i:%i\n ", i, i);
 		a[i] = malloc(width * sizeof(**a));
 		if (a[i] == NULL)
 		{
-			printf("here 2\n");
 			while (--i >= 0)
 				free(a[i]);
 			free(a);
 			return (NULL);
 		}
 		i++;
-		printf("there %i %i\n", i < height, a == NULL);
 	}
-	printf("there/n");
 	i = 0;
 	while (i < height)
 	{
