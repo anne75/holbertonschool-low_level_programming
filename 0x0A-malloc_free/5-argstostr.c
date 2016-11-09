@@ -21,7 +21,7 @@ int _strlen(char *s)
 
 /**
  * argstostr - concatenates all the arguments of program.
- * @ac: number of arguments, includeing name of program
+ * @ac: number of arguments, including name of program
  * @av: array of string arguments
  * Return: pointer to string created, all arguments together \n separated
  */
@@ -37,7 +37,7 @@ char *argstostr(int ac, char **av)
 		tot_l += _strlen(*(av + i));
 		i++;
 	}
-	tot_l += ac;
+	tot_l += ac + 1;
 	s = malloc(tot_l * sizeof(char));
 	if (s == NULL)
 		return (NULL);
@@ -50,11 +50,12 @@ char *argstostr(int ac, char **av)
 		while (av[i][k] != '\0')
 		{
 			*(s + j) = av[i][k];
-			k++;
-			j++;
+			++k;
+			++j;
 		}
 		*(s + j++) = '\n';
 		i++;
 	}
+	*(s + j) = '\0';
 	return (s);
 }
