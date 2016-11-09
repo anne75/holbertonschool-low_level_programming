@@ -10,7 +10,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **a, i;
+	int **a, i, j;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -32,7 +32,7 @@ int **alloc_grid(int width, int height)
 		}
 		i++;
 	}
-/*	i = 0;
+	i = 0;
 	while (i < height)
 	{
 		j = 0;
@@ -43,7 +43,7 @@ int **alloc_grid(int width, int height)
 		}
 		i++;
 	}
-*/
+
 	return (a);
 }
 /*This is not passing the free check unfortunately*/
