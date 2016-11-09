@@ -30,6 +30,8 @@ char *argstostr(int ac, char **av)
 	int i, j, k, tot_l;
 	char *s;
 
+	if (av == NULL)
+		return (NULL);
 	i = 0;
 	tot_l = 0;
 	while (i < ac)
@@ -37,7 +39,7 @@ char *argstostr(int ac, char **av)
 		tot_l += _strlen(*(av + i));
 		i++;
 	}
-	tot_l += ac + 1;
+	tot_l += ac + 1; /*add \n and \0*/
 	s = malloc(tot_l * sizeof(char));
 	if (s == NULL)
 		return (NULL);
