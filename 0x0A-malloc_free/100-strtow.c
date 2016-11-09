@@ -76,10 +76,7 @@ char **strtow(char *str)
 	s = malloc((nbword + 1) * sizeof(*s));
 	if (s == NULL)
 		return (NULL);
-
-	i = 0;
-	j = 0;
-	word = 0;
+	i = j = word = 0;
 	while (i < nbword)
 	{
 		if (j == 0 && *str != ' ')
@@ -96,14 +93,12 @@ char **strtow(char *str)
 			l = _strw(str + j);
 			s[i] = malloc((l + 1) * sizeof(**s));
 			if (s[i] == NULL)
-			{
 				while (--i >= 0)
 				{
 					free(s[i]);
 					free(s);
 					return (NULL);
 				}
-			}
 			s[i] = getw(str + j, s[i], l);
 			++i;
 			j += l - 1;
