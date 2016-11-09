@@ -26,7 +26,7 @@ unsigned long _strlen(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	unsigned long l1, l2;
-	unsigned int i;
+	unsigned int i, j;
 	char *s;
 
 	if (s1 == NULL && s2 == NULL)
@@ -43,12 +43,12 @@ char *str_concat(char *s1, char *s2)
 	if (s == NULL)
 		return (NULL);
 
-	i = 0;
-	while (i < l1)
-		*(s + i++) = *s1++;
-
-	while (i < (l1 + l2))
-		*(s + i++) = *s2++;
+	i = j = 0;
+	while (j < l1)
+		*(s + i++) = *(s1 + j++);
+	j = 0;
+	while (j <  l2)
+		*(s + i++) = *(s2 + j++);
 	*(s + i) = '\0';
 	return (s);
 }
