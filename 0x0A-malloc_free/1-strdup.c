@@ -31,7 +31,6 @@ char *_strdup(char *str)
 	char *s;
 
 	l = _strlen(str);
-	printf("%i\n", l);
 	s = malloc((l + 1) * sizeof(char));
 	if (s == NULL)
 		return (NULL);
