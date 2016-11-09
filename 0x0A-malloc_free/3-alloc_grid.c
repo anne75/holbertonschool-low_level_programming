@@ -43,7 +43,6 @@ int **alloc_grid(int width, int height)
 		}
 		i++;
 	}
-
 	return (a);
 }
 /*This is not passing the free check unfortunately*/
