@@ -28,6 +28,8 @@ char *str_concat(char *s1, char *s2)
 	int l1, l2, i;
 	char *s;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 
 	l1 = _strlen(s1);
 	l2 = _strlen(s2);
