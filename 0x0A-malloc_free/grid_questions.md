@@ -56,5 +56,5 @@ OK, there is something. Since yesterday I had come up with solution 2 and 3, I t
 (http://stackoverflow.com/questions/1865501/c-program-on-linux-to-exhaust-memory/1865527#1865527)
 or [*opportunistic memory allocation scheme*](http://stackoverflow.com/questions/16674370/why-does-malloc-or-new-never-return-null).
 It looks like linux is overbooks memory, giving away addresses and only checking if it is going to work as we try accessing 
-the value. So I thought about solving that problem, and I found solution 1. However today solution 2 is working fine.
+the value. That meant all my `s = malloc(...); if (s == NULL)...` did not count. So I thought about solving that problem, and I found solution 1. However today solution 2 is working fine.
 So, what was wrong yesterday ?
