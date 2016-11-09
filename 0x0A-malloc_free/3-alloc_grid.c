@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * alloc_grid - return a pointer to a newly created 2 dim integer grid
@@ -9,7 +10,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **a, i, j;
+	int **a, i;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -21,7 +22,7 @@ int **alloc_grid(int width, int height)
 	i = 0;
 	while (i < height)
 	{
-		a[i] = malloc(width * sizeof(**a));
+		a[i] = calloc(width, sizeof(**a));
 		if (a[i] == NULL)
 		{
 			while (--i >= 0)
@@ -31,7 +32,7 @@ int **alloc_grid(int width, int height)
 		}
 		i++;
 	}
-	i = 0;
+/*	i = 0;
 	while (i < height)
 	{
 		j = 0;
@@ -42,10 +43,10 @@ int **alloc_grid(int width, int height)
 		}
 		i++;
 	}
-
+*/
 	return (a);
 }
-
+/*This is not passing the free check unfortunately*/
 /* *a = malloc(sizeof(int) * width * height);
  *   if (*a == NULL)
  *  {
