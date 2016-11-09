@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 /**
  * _strlen - I cannot use strlen()
  * @s: string
  * Return: return size of string
  */
-int _strlen(char *s)
+unsigned long _strlen(char *s)
 {
-	int i;
+	unsigned long i;
 
 	i = 0;
 	while (*(s + i) != '\0')
@@ -24,7 +25,8 @@ int _strlen(char *s)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int l1, l2, i;
+	unsigned long l1, l2;
+	unsigned int i;
 	char *s;
 
 	l1 = l2 = 0;
@@ -34,6 +36,8 @@ char *str_concat(char *s1, char *s2)
 		l1 = _strlen(s1);
 	if (s2 != NULL)
 		l2 = _strlen(s2);
+	if (l1 + l2 >= SIZE_MAX)
+		return (NULL);
 	s = malloc((l1 + l2 + 1) * sizeof(char));
 	if (s == NULL)
 		return (NULL);
