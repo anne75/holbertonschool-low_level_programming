@@ -48,11 +48,10 @@ $ ./a.out
 Killed
 $ gccplus 3-allocsinglespace.c main-test.c
 $ ./a.out 
-Segmentation fault (core dumped)
+Killed
 $ 
 ```
-OK, there is something. Since yesterday I had come up with solution 2 and 3, I tried to figure out why it was killed 
-(did not look much into seg fault sorry). I started to read about  [*opportunistic allocation*]
+OK, there is something. Since yesterday I had come up with solution 2 and 3, I tried to figure out why it was killed. I started to read about  [*opportunistic allocation*]
 (http://stackoverflow.com/questions/1865501/c-program-on-linux-to-exhaust-memory/1865527#1865527)
 or [*opportunistic memory allocation scheme*](http://stackoverflow.com/questions/16674370/why-does-malloc-or-new-never-return-null).
 It looks like linux is overbooks memory, giving away addresses and only checking if it is going to work as we try accessing 
