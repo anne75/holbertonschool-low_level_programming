@@ -53,24 +53,14 @@ int **alloc_grid(int width, int height)
 				free(a[i]);
 			free(a);
 			return (NULL);
-			a[i] = _memset(a[i], 0, width);
 		}
+		i++;
+	}
+	i = 0;
+	while (i < height)
+	{
+		a[i] = _memset(a[i], 0, width);
 		i++;
 	}
 	return (a);
 }
-
-/*This is not passing the free check unfortunately*/
-/* *a = malloc(sizeof(int) * width * height);
- *   if (*a == NULL)
- *  {
- *  free(a);
- *  return (NULL);
- *  }
- *  i = 0;
- *  while (i <= height)
- *  {
- *  a[i] = (*a + width * i);
- *  i++;
- *  }
-*/
