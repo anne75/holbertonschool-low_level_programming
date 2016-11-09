@@ -29,13 +29,14 @@ char *str_concat(char *s1, char *s2)
 	unsigned int i;
 	char *s;
 
-	l1 = l2 = 0;
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	if (s1 != NULL)
-		l1 = _strlen(s1);
-	if (s2 != NULL)
-		l2 = _strlen(s2);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
 	if (l1 + l2 >= SIZE_MAX)
 		return (NULL);
 	s = malloc((l1 + l2 + 1) * sizeof(char));
@@ -43,13 +44,11 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 
 	i = 0;
-	if (s1 != NULL)
-		while (i < l1)
-			*(s + i++) = *s1++;
+	while (i < l1)
+		*(s + i++) = *s1++;
 
-	if (s2 != NULL)
-		while (i < (l1 + l2))
-			*(s + i++) = *s2++;
+	while (i < (l1 + l2))
+		*(s + i++) = *s2++;
 	*(s + i) = '\0';
 	return (s);
 }
