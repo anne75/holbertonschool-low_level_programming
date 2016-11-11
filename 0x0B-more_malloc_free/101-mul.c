@@ -36,7 +36,7 @@ char *checkarg(char *s)
 			return (NULL);
 
 		if (stop == 0 && *(s + i) == '0')
-		    ++count;
+			++count;
 		if (*(s + i) != '0')
 			stop = 1;
 		i++;
