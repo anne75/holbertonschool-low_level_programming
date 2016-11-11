@@ -18,11 +18,8 @@ int *_memset(int *s, int b, int n)
 		return (NULL);
 
 	i = 0;
-	while (i < n && (s + i) != NULL)
+	while (i < n)
 		*(s + i++) = b;
-	if (s == NULL)
-		return (NULL);
-
 
 	return (s);
 }
@@ -53,9 +50,9 @@ int **alloc_grid(int width, int height)
 				free(a[i]);
 			free(a);
 			return (NULL);
-			a[i] = _memset(a[i], 0, width);
 		}
-		i++;
+			a[i] = _memset(a[i], 0, width);
+			i++;
 	}
 	return (a);
 }
