@@ -48,13 +48,14 @@ $ ./a.out
 Killed
 $ gccplus 3-allocsinglespace.c main-test.c
 $ ./a.out 
-Segmentation fault (core dumped)
+Killed
 $ 
 ```
-OK, there is something. Since yesterday I had come up with solution 2 and 3, I tried to figure out why it was killed 
-(did not look much into seg fault sorry). I started to read about  [*opportunistic allocation*]
+OK, there is something. Since yesterday I had come up with solution 2 and 3, I tried to figure out why it was killed. I started to read about  [*opportunistic allocation*]
 (http://stackoverflow.com/questions/1865501/c-program-on-linux-to-exhaust-memory/1865527#1865527)
 or [*opportunistic memory allocation scheme*](http://stackoverflow.com/questions/16674370/why-does-malloc-or-new-never-return-null).
 It looks like linux is overbooks memory, giving away addresses and only checking if it is going to work as we try accessing 
 the value. That meant all my `s = malloc(...); if (s == NULL)...` did not count. So I thought about solving that problem, and I found solution 1. However today solution 2 is working fine.
 So, what was wrong yesterday ?
+
+**Addendum**: Pushing further I decided to make another test creating a square grid starting at 0, going up to 5000. Result: if my test includes printing a value of the grid, the process gets killed at the 351th iteration. Otherwise, it gets killed at the 464th one. In any single case. So what do we use the `NULL` check for ?
