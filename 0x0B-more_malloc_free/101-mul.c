@@ -23,7 +23,7 @@ int _strlen(char *s)
  * @s: string to check
  * Return: -1 if False, number as string stripped of 0 otherwise;
  */
-char * checkarg(char *s)
+char *checkarg(char *s)
 {
 	int i, count, stop;
 
@@ -34,6 +34,7 @@ char * checkarg(char *s)
 	{
 		if (*(s + i) < '0' || *(s + i) > '9')
 			return (NULL);
+
 		if (stop == 0 && *(s + i) == '0')
 		    ++count;
 		if (*(s + i) != '0')
@@ -62,12 +63,12 @@ char *makesecond(char *src, int l1,  char c, int zero)
 		return (NULL);
 	second[l - 1] = '\0';
 	while (zero > 0)
-		second[l -1 - zero--] = '0';
+		second[l - 1 - zero--] = '0';
 	j = l1;
 	retenue = 0;
 	while (j > 0)
 	{
-		prod = (src[j - 1] -'0') * (c - '0') + retenue;
+		prod = (src[j - 1] - '0') * (c - '0') + retenue;
 		second[j] = prod % 10 + '0';
 		retenue = prod / 10;
 		j--;
@@ -152,53 +153,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 
 /**
- * main - multiply 2 numbers
- * @argc: number of arguments
- * @argv: list of arguments
- * Return: 0
- */
-int main(int argc, char *argv[])
-{
-	char *mul, *n1, *n2;
-
-	if (argc != 3)
-	{
-		puts("Error");
-		exit(98);
-	}
-	n1 = checkarg(argv[1]);
-	n2 = checkarg(argv[2]);
-	if (n1 == NULL || n2 == NULL)
-	{
-		puts("Error");
-		exit(98);
-	}
-
-	if (*n1 == '\0' || *n2 == '\0')
-	{
-		printf("0\n");
-		return (0);
-	}
-	else
-	{
-		mul = _mul(n1, n2);
-		if (mul == NULL)
-		{
-			puts("merde");
-			return (0);
-		}
-	}
-
-	printf("%s\n", checkarg(mul));
-	free(mul);
-	return (0);
-}
-
-/**
  * _mul - multiply 2 strings made of digits
- * @s1:
- * @s2:
- * Return:
+ * @s1:first string
+ * @s2:second string
+ * Return: product or NULL
  */
 char *_mul(char *s1, char *s2)
 {
@@ -239,4 +197,48 @@ char *_mul(char *s1, char *s2)
 		++i;
 	}
 	return (third);
+}
+
+
+/**
+ * main - multiply 2 numbers
+ * @argc: number of arguments
+ * @argv: list of arguments
+ * Return: 0
+ */
+int main(int argc, char *argv[])
+{
+	char *mul, *n1, *n2;
+
+	if (argc != 3)
+	{
+		puts("Error");
+		exit(98);
+	}
+	n1 = checkarg(argv[1]);
+	n2 = checkarg(argv[2]);
+	if (n1 == NULL || n2 == NULL)
+	{
+		puts("Error");
+		exit(98);
+	}
+
+	if (*n1 == '\0' || *n2 == '\0')
+	{
+		printf("0\n");
+		return (0);
+	}
+	else
+	{
+		mul = _mul(n1, n2);
+		if (mul == NULL)
+		{
+			puts("merde");
+			return (0);
+		}
+	}
+
+	printf("%s\n", checkarg(mul));
+	free(mul);
+	return (0);
 }
