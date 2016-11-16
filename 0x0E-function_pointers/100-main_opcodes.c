@@ -10,7 +10,8 @@
 int main(int ac, char **av)
 {
 	int i, b;
-	unsigned char *opcodes; /*use chars as ints are too big and won't work with 2x*/
+	unsigned char *opcodes;
+/*use chars as each opcode is two char long*/
 
 	if (ac != 2)
 	{
@@ -29,10 +30,11 @@ int main(int ac, char **av)
 	i = 0;
 	while (i < b)
 	{
-		printf("%2.2x ", *(opcodes + i));
+		printf("%x ", *(opcodes + i));
 		++i;
 	}
-	puts("");
+	if (b > 0)
+		puts("");
 	return (0);
 }
 
