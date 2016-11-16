@@ -44,6 +44,7 @@ int op_div(int a, int b)
 {
 	if (b == 0)
 		return (1000040);
+/*taken care of in main but could exit here*/
 	return (a / b);
 }
 
