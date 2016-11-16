@@ -17,10 +17,8 @@ int (*get_op_func(char *s))(int, int)
 	i = 0;
 	while (i < 5)
 	{
-		printf("DEBUG GET: s %s, ops %c\n", s, ops[i]);
 		if (*s == ops[i])
 		{
-			puts("DEBUG GET: i have a match");
 			return (p[i]);
 		}
 		++i;
