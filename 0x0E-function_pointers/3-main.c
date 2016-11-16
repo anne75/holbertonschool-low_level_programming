@@ -28,9 +28,10 @@ int main(int ac, char **av)
 
 	a = atoi(av[1]);
 	b = atoi(av[3]);
+	printf("DEBUG main a %i b %i\n", a, b);
 	if (b == 0 && (*(av[2]) == '/' || *(av[2]) == '%'))
 	{
-		puts("Division by 0 Error");
+		puts("Error");
 		exit(100);
 	}
 	printf("%d\n", op(a, b));
