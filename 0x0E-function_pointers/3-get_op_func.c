@@ -11,6 +11,7 @@ int (*get_op_func(char *s))(int, int)
 {
 	int i;
 	char ops[5] = {'+', '-', '*', '/', '%'};
+
 	int (*p[5])(int, int) = {op_add, op_sub, op_mul, op_div, op_mod};
 
 	i = 0;
