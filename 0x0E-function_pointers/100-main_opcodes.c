@@ -31,11 +31,11 @@ int main(int ac, char **av)
 	while (i < b)
 	{
 		printf("%x", *(opcodes + i));
-		if (i < b - 1)
+		++i;
+		if (i != b)
 			putchar(' ');
 		else
 			puts("");
-		++i;
 	}
 	return (0);
 }
