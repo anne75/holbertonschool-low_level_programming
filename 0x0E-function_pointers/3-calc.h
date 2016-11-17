@@ -3,16 +3,16 @@
 
 /*struct*/
 /**
- * struct ops - Struct ops
+ * struct op - Struct op
  *
  * @op: The operator
- * @p: The function associated
+ * @f: The function associated
  */
-typedef struct ops
+typedef struct op
 {
 	char op;
-	int (*p)(int, int);
-} operations;
+	int (*f)(int, int);
+} op_t;
 
 
 /*functions needed in question 4*/

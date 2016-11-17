@@ -11,19 +11,21 @@ int (*get_op_func(char *s))(int, int)
 {
 	int i;
 
+	op_t ops[] = {{'+', op_add},
+		      {'-', op_sub},
+		      {'*', op_mul},
+		      {'/', op_div},
+		      {'%', op_mod} };
+
 	if (s == NULL)
 		return (NULL);
-
-	operations po[5] = {{'+', op_add}, {'-', op_sub}, {'*', op_mul},
-			    {'/', op_div}, {'%', op_mod}};
-
 
 	i = 0;
 	while (i < 5)
 	{
-		if (*s == po[i].op && *(s + 1) == '\0')
+		if (*s == ops[i].op && *(s + 1) == '\0')
 		{
-			return (po[i].p);
+			return (ops[i].f);
 		}
 		++i;
 	}
