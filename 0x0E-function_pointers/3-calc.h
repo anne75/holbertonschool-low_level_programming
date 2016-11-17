@@ -2,7 +2,14 @@
 #define _CALC_H_
 
 /*struct*/
-typedef struct {
+/**
+ * struct ops - Struct ops
+ *
+ * @op: The operator
+ * @p: The function associated
+ */
+typedef struct ops
+{
 	char op;
 	int (*p)(int, int);
 } operations;
