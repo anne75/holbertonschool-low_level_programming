@@ -1,6 +1,13 @@
 #ifndef _CALC_H_
 #define _CALC_H_
 
+/*struct*/
+typedef struct {
+	char op;
+	int (*p)(int, int);
+} operations;
+
+
 /*functions needed in question 4*/
 
 int op_add(int, int);

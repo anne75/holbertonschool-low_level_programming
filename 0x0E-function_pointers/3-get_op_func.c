@@ -10,16 +10,20 @@
 int (*get_op_func(char *s))(int, int)
 {
 	int i;
-	char ops[5] = {'+', '-', '*', '/', '%'};
+	//char ops[5] = {'+', '-', '*', '/', '%'};
 
-	int (*p[5])(int, int) = {op_add, op_sub, op_mul, op_div, op_mod};
+	//int (*p[5])(int, int) = {op_add, op_sub, op_mul, op_div, op_mod};
+
+	operations po[5] = {{'+', op_add}, {'-', op_sub}, {'*', op_mul},
+			    {'/', op_div}, {'%', op_mod}};
+
 
 	i = 0;
 	while (i < 5)
 	{
-		if (*s == ops[i] && *(s + 1) == '\0')
+		if (*s == po[i].op && *(s + 1) == '\0')
 		{
-			return (p[i]);
+			return (po[i].p);
 		}
 		++i;
 	}
