@@ -30,7 +30,7 @@ int main(int ac, char **av)
 	i = 0;
 	while (i < b)
 	{
-		printf("%x", *(opcodes + i));
+		printf("%02x", *(opcodes + i));
 		++i;
 		if (i != b)
 			putchar(' ');
