@@ -10,7 +10,7 @@
  */
 void print_ci(va_list v, char *s, char *end)
 {
-	printf(s, va_arg(v, int), end);
+	printf(s, end, va_arg(v, int));
 }
 
 /**
@@ -22,7 +22,7 @@ void print_ci(va_list v, char *s, char *end)
  */
 void print_d(va_list v, char *s, char *end)
 {
-	printf(s, va_arg(v, double), end);
+	printf(s, end, va_arg(v, double));
 }
 
 /**
@@ -39,30 +39,7 @@ void print_s(va_list v, char *s, char *end)
 	arg = va_arg(v, char *);
 	if (!arg)
 		arg = "(nil)";
-	printf(s, arg, end);
-}
-
-/**
- * chose - function to chose which printing function to use
- * @format: type of element to print
- * @vp: va_list
- * @array: a struct array to chose the function and its arguments
- * @end: separator after print
- * Return: void
- */
-void chose(char format, va_list vp, fs array[], char *end)
-{
-	int i;
-
-	i = 0;
-	while (i < 5)
-	{
-		if (format == array[i].def)
-		{
-			array[i].mat(vp, array[i].s, end);
-		}
-		++i;
-	}
+	printf(s, end, arg);
 }
 
 /**
@@ -73,24 +50,37 @@ void chose(char format, va_list vp, fs array[], char *end)
  */
 void print_all(const char * const format, ...)
 {
-	int j;
+	int i, j;
+	char *end;
 	va_list alist;
 
-	fs array[] = {{print_ci, "%c%s", 'c'},
-		      {print_d, "%f%s", 'f'},
-		      {print_ci, "%i%s", 'i'},
+	fs array[] = {{print_ci, "%s%c", 'c'},
+		      {print_d, "%s%f", 'f'},
+		      {print_ci, "%s%i", 'i'},
 		      {print_s, "%s%s", 's'},
 		      {NULL, "", '\0'}
 	};
 
-	j = 0;
-	va_start(alist, format);
-	while (*(format + j) && *(format + j + 1))
+	if (format && *format)
 	{
-		chose(*(format + j), alist, array, ", ");
-		++j;
+		j = 0;
+		va_start(alist, format);
+		end = "";
+		while (*(format + j))
+		{
+			i = 0;
+			while (i < 5)
+			{
+				if (*(format + j) == array[i].def)
+				{
+					array[i].mat(alist, array[i].s, end);
+				}
+				++i;
+			}
+			end = ", ";
+			++j;
+		}
+		va_end(alist);
 	}
-	chose(*(format + j), alist, array, "");
 	puts("");
-	va_end(alist);
 }
