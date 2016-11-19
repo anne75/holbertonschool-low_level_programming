@@ -1,6 +1,5 @@
 #include "variadic_functions.h"
 
-#define PRINT(t) ("%"#t)
 
 /**
  * print_ci - prints va if it is a char or an int
@@ -91,6 +90,7 @@ void print_all(const char * const format, ...)
 		chose(*(format + j), alist, array, ", ");
 		++j;
 	}
-	chose(*(format + j), alist, array, "\n");
+	chose(*(format + j), alist, array, "");
+	puts("");
 	va_end(alist);
 }
