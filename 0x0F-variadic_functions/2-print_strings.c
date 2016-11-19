@@ -23,8 +23,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		++i;
 		if (separator && i < n)
 			printf("%s", separator);
-		if (i == n)
-		puts("");
 	}
+	puts("");
 	va_end(alist);
 }
