@@ -13,6 +13,8 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	char *a;
 
 	i = 0;
+	if (n == 0)
+		return;
 	va_start(alist, n);
 	while (i < n)
 	{

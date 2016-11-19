@@ -1,4 +1,3 @@
-/*header file for 0x0F*/
 #ifndef _VARIADIC_FUNCTIONS_H_
 #define _VARIADIC_FUNCTIONS_H_
 
@@ -7,19 +6,16 @@
 
 
 /**
- * fs - struct
+ * struct fs - Struct fs
  * @def: either c f i or s
- * @mat: format for printf
- * @i: an int
- * @c: a char
- * @f: a float
- * @s: a string
+ * @mat: function associated with def
+ * @s: formatting string
  */
 typedef struct fs
 {
-	char def;
 	void (*mat)(va_list, char *, char *);
 	char *s;
+	char def;
 } fs;
 
 
