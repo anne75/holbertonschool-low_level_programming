@@ -77,11 +77,11 @@ void print_all(const char * const format, ...)
 	int j;
 	va_list alist;
 
-	fs array[] = {{'c', print_ci, "%c%s"},
-		      {'f', print_d, "%f%s"},
-		      {'i', print_ci, "%i%s"},
-		      {'s', print_s, "%s%s"},
-		      {'\0', NULL, ""}
+	fs array[] = {{print_ci, "%c%s", 'c'},
+		      {print_d, "%f%s", 'f'},
+		      {print_ci, "%i%s", 'i'},
+		      {print_s, "%s%s", 's'},
+		      {NULL, "", '\0'}
 	};
 
 	j = 0;
