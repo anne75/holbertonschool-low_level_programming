@@ -63,6 +63,7 @@ void print_all(const char * const format, ...)
 
 	va_start(alist, format);
 	j = 0;
+	end = "";
 	while (format && *(format + j))
 	{
 		i = 0;
