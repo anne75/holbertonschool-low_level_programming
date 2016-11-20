@@ -69,7 +69,7 @@ void print_all(const char * const format, ...)
 			{
 				printf("%s", end);
 				array[i].mat(alist, array[i].s);
-				end = " ,";
+				end = ", ";
 			}
 			++i;
 		}
