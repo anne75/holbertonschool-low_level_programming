@@ -61,26 +61,22 @@ void print_all(const char * const format, ...)
 		      {NULL, "", '\0'}
 	};
 
-	if (format && *format)
+	va_start(alist, format);
+	j = 0;
+	while (format && *(format + j))
 	{
-		j = 0;
-		va_start(alist, format);
-		end = "";
-		while (*(format + j))
+		i = 0;
+		while (i < 5)
 		{
-			i = 0;
-			while (i < 5)
+			if (*(format + j) == array[i].def)
 			{
-				if (*(format + j) == array[i].def)
-				{
-					array[i].mat(alist, array[i].s, end);
-				}
-				++i;
+				array[i].mat(alist, array[i].s, end);
 			}
-			end = ", ";
-			++j;
+			++i;
 		}
-		va_end(alist);
+		end = ", ";
+		++j;
 	}
+	va_end(alist);
 	puts("");
 }
