@@ -13,7 +13,7 @@
  */
 typedef struct fs
 {
-	void (*mat)(va_list, char *, char *);
+	void (*mat)(va_list, char *);
 	char *s;
 	char def;
 } fs;
