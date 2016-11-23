@@ -26,7 +26,7 @@ n1:	dq 10			; newline
 main:				; the program label for the entry point
         push    rbp		; set up stack frame, must be aligned
 	mov	rbp, rsp
-	mov	edx, len	; arg3, length
+	mov	edx, 16		; arg3, length
 	mov	ecx,msg		; arg2, pointer to string
 	mov	ebx, 1		; arg1, where to write, screen
 	mov	eax,4 		; write  into interrupt
