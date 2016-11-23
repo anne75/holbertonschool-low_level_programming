@@ -16,8 +16,9 @@
 
 
         section .data		; Data section, initialized variables
-msg:	db "Hello, Holberton\n", 0	; C string needs 0
+msg:	db "Hello, Holberton", 0	; C string needs 0
 len:	equ $-msg
+n1:	dq 10			; newline
 
         section .text           ; Code section.
 
@@ -25,12 +26,18 @@ len:	equ $-msg
 main:				; the program label for the entry point
         push    rbp		; set up stack frame, must be aligned
 	mov	rbp, rsp
-	mov	ecx, len
-	mov	edx,msg
-	mov	esi, 1		; arg one: file descriptor
-	mov	edi, 1		; syscall number
-	mov	eax, 0
+	mov	edx, len	; arg3, length
+	mov	ecx,msg		; arg2, pointer to string
+	mov	ebx, 1		; arg1, where to write, screen
+	mov	eax,4 		; write  into interrupt
 	int	0x80		; Interrupt 0x80 no sy s c a l l
+
+	mov	edx, 1
+	mov	ecx, n1
+	mov	ebx, 1
+	mov	eax, 4
+	int	0x80
+
 	mov	eax,0		; or can be  xor  rax,rax
 
 	pop	rbp		; restore stack
