@@ -9,4 +9,4 @@ The following exercises are answered:
   
 The following questions are extras, not related to linked lists.  
 100. Write a function that prints a specific string before the main function is executed.  
-101. Write a 64-bit program in assembly that prints Hello, Holberton, followed by a new line.  
+101. Write a 64-bit program in assembly that prints Hello, Holberton, followed by a new line. We are only allowed to use the printf function.
