@@ -28,13 +28,13 @@ list_t *add_node(list_t **head, const char *str)
 	list_t *new;
 
 	new = malloc(sizeof(list_t));
-	if(new == NULL || str == NULL)
+	if (new == NULL || str == NULL)
 		return (NULL);
 
 	new->str = strdup(str);
 	new->len = _strlen(str);
 	new->next = NULL;
-	if(head != NULL)
+	if (head != NULL)
 		new->next = *head;
 	*head = new;
 	return (new);
