@@ -15,12 +15,10 @@ int main(void)
 	row = 0;
 	while (row < 50000)
 	{
-		printf("row:%i  ", row);
+		printf("grid[%i][%i]\n", row, row);
 		g = alloc_grid(row, row );
-		if (g == NULL)
-			puts(" NULL\n");
-		/*else
-			printf(" %i\n", g[0][0]);*/
+		if (g != NULL)
+			g[0][0] = 1;
 		row++;
 	}
 	puts("\n");
