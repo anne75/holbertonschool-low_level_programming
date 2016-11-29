@@ -1,3 +1,4 @@
+; source https://www.csee.umbc.edu/portal/help/nasm/sample_64.shtml#hello_64.asm
 ; hello_64.asm    print a string using printf
 ; Assemble:	  nasm -f elf64 -l hello_64.lst  hello_64.asm
 ; Link:		  gcc -m64 -o hello_64  hello_64.o
@@ -6,11 +7,11 @@
 
 ; Equivalent C code
 ; // hello.c
-; #include <stdio.h>
+; #include <unistd.h>
 ; int main()
 ; {
 ;   char msg[] = "Hello, Holberton\n";
-;   printf("%s\n",msg);
+;   write(1, msg, 17);
 ;   return 0;
 ; }
 
@@ -29,7 +30,7 @@ main:				; the program label for the entry point
 	mov	edx, 16		; arg3, length
 	mov	ecx,msg		; arg2, pointer to string
 	mov	ebx, 1		; arg1, where to write, screen
-	mov	eax,4 		; write  into interrupt
+	mov	eax,4 		; write interrupt IMPR: different with interrupt
 	int	0x80		; Interrupt 0x80 no sy s c a l l
 
 	mov	edx, 1
