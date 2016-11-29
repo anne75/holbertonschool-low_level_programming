@@ -1,3 +1,4 @@
+; from https://www.csee.umbc.edu/portal/help/nasm/sample_64.shtml#hello_64.asm
 ; hello_64.asm    print a string using printf
 ; Assemble:	  nasm -f elf64 -l hello_64.lst  hello_64.asm
 ; Link:		  gcc -m64 -o hello_64  hello_64.o
