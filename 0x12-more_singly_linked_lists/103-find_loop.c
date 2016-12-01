@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*http://codingfreak.blogspot.com/2012/09/detecting-loop-in-singly-linked-
+ *list_22.html
+ *http://codingfreak.blogspot.com/2012/12/detecting-first-node-in-a-loop.html
+ */
+
 /**
  * find_listint_loop - find a loop in a linked list
  * @head: beginning of linked list
@@ -9,29 +14,31 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	list_ad *address, *check;
+	listint_t *hare, *turtle;
 
 	if (head == NULL)
 		return (NULL);
 
-	address = NULL;
-
+	turtle = head;
+	hare = head;
 /*assume in a non looping list, it always ends pointing to NULL*/
-	while (head != NULL)
+	while (turtle || hare)
 	{
-		if (is_in(address, (void *) head))
-		{
-			free_add(address);
-			return (head);
-		}
-		check = add_add(&address, (void *) head);
-		if (check == NULL)
-		{
-			free_add(address);
-			exit(98);
-		}
-		head = head->next;
+		if (turtle == hare)
+			break;
+		hare= hare->next;
+		if (hare)
+			hare = hare->next;
+		turtle = turtle->next;
 	}
-	free_add(address);
-	return (NULL);
+	if (!turtle || !hare)
+		return (NULL);
+
+	turtle = head;
+	while (turtle != hare)
+	{
+		hare = hare->next;
+		turtle = turtle->next;
+	}
+	return (turtle);
 }
