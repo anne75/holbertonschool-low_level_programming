@@ -26,7 +26,7 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 		if (turtle == hare)
 			break;
-		hare= hare->next;
+		hare = hare->next;
 		if (hare)
 			hare = hare->next;
 		turtle = turtle->next;
