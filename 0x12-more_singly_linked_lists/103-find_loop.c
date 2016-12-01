@@ -24,12 +24,12 @@ listint_t *find_listint_loop(listint_t *head)
 /*assume in a non looping list, it always ends pointing to NULL*/
 	while (turtle || hare)
 	{
-		if (turtle == hare)
-			break;
 		hare = hare->next;
 		if (hare)
 			hare = hare->next;
 		turtle = turtle->next;
+		if (turtle == hare)
+			break;
 	}
 	if (!turtle || !hare)
 		return (NULL);
