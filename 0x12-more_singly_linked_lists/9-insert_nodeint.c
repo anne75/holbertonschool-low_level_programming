@@ -16,7 +16,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 
 	if (!head)
 		return (NULL);
-
 /*insert at head, head can be NULL*/
 	if (index == 0)
 	{
@@ -38,10 +37,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 		++i;
 		tmp = tmp->next;
 	}
-/*the list is too short, ot head is NULL (case NULL head i = 1)*/
-	if (head == NULL || i != index - 1)
+/*the list is too short, or head is NULL (case NULL head i = 1), or tmp NULL*/
+	if (head == NULL || i != index - 1 || tmp == NULL)
 		return (NULL);
-
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
