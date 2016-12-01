@@ -4,7 +4,7 @@
 /**
  * get_nodeint_at_index - return the node at index
  * @head: pointer to first element
- * index: position that needs to be returned
+ * @index: position that needs to be returned
  * Return: pointer to node at index
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)

@@ -30,7 +30,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		tmp = tmp->next;
 	}
 /*either can't reach previous node or node at index == NULL*/
-	if (i != (index -1) || tmp->next == NULL)
+	if (i != (index - 1) || tmp->next == NULL)
 		return (-1);
 	tmp2 = tmp->next;
 	tmp->next = (tmp->next)->next;

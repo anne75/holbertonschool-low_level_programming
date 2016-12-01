@@ -21,7 +21,7 @@ typedef struct listint_s
 
 /**
  * struct list_ads - singly linked list
- * @add: an address
+ * @p: an address
  * @next: points to the next node
  * Description: this singly linked list holds addresses
  * of encountered pointers
@@ -64,7 +64,8 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index);
 int sum_listint(listint_t *head);
 
 /*question 9*/
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n);
+listint_t *insert_nodeint_at_index(listint_t **head,
+				   unsigned int index, int n);
 
 /*question 10*/
 int delete_nodeint_at_index(listint_t **head, unsigned int index);

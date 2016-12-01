@@ -28,7 +28,7 @@ int is_in(list_ad *add, void *p)
 /**
  * add_add - adds an address to a linked list
  * @head: a pointer to a linked list of addresses
- * @pp: an address
+ * @p: an address
  * Return: pointer to head of list
  */
 list_ad *add_add(list_ad **head, void *p)
@@ -54,7 +54,7 @@ void free_add(list_ad *head)
 {
 	list_ad *tmp;
 
-	while(head != NULL)
+	while (head != NULL)
 	{
 		tmp = head;
 		head = head->next;
@@ -96,7 +96,7 @@ size_t print_listint_safe(const listint_t *head)
 		}
 		head = head->next;
 /*add node address to linked list*/
-		keep = is_in(address,(void *) head);
+		keep = is_in(address, (void *) head);
 		++l;
 	}
 	if (keep)

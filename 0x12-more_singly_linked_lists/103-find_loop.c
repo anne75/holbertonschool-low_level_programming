@@ -19,7 +19,7 @@ listint_t *find_listint_loop(listint_t *head)
 /*assume in a non looping list, it always ends pointing to NULL*/
 	while (head != NULL)
 	{
-		if (is_in(address,(void *) head))
+		if (is_in(address, (void *) head))
 		{
 			free_add(address);
 			return (head);
