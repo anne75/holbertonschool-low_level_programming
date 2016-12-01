@@ -32,9 +32,9 @@ listint_t *find_listint_loop(listint_t *head)
 		{
 			hare = hare->next;
 		}
+		turtle = turtle->next;
 		if (turtle == hare)
 			break;
-		turtle = turtle->next;
 	}
 	if (turtle == NULL || hare == NULL)
 		return (NULL);
