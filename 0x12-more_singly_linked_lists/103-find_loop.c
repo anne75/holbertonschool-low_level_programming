@@ -28,9 +28,9 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 /*move hare 2 steps at a time*/
 		hare = hare->next->next;
-		turtle = turtle->next;
 		if (turtle == hare)
 			break;
+		turtle = turtle->next;
 	}
 	if (turtle == NULL || hare == NULL)
 		return (NULL);
