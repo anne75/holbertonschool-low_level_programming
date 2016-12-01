@@ -24,14 +24,10 @@ listint_t *find_listint_loop(listint_t *head)
 /*assume in a non looping list, it always ends pointing to NULL
  *find a cycle
  */
-	while (turtle != NULL && hare != NULL)
+	while (turtle != NULL && hare != NULL && hare->next != NULL)
 	{
 /*move hare 2 steps at a time*/
-		hare = hare->next;
-		if (hare)
-		{
-			hare = hare->next;
-		}
+		hare = hare->next->next;
 		turtle = turtle->next;
 		if (turtle == hare)
 			break;
