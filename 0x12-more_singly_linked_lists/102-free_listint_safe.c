@@ -37,3 +37,5 @@ size_t free_listint_safe(listint_t **h)
 	free_add(address);
 	return (l);
 }
+
+/*look at Justin's solution, links a list on the stack, no call to malloc*/
