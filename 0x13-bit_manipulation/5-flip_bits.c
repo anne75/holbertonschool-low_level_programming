@@ -19,10 +19,10 @@ int helper(unsigned long int n)
 }
 
 /**
- * flib_bits - return number of bits to flip
+ * flip_bits - return number of bits to flip
  * @n: a number
  * @m: a number
- * return the number of bits to flip to go from n to m
+ *  - return the number of bits to flip to go from n to m
  * Return: number of bits
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
@@ -40,6 +40,6 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 		m = m >> 1;
 	}
 /*n and m might have different length in number of non 0 bits*/
-	count += helper(n) + helper (m);
+	count += helper(n) + helper(m);
 	return (count);
 }

@@ -12,12 +12,12 @@
 int get_endianness(void)
 {
 	int n;
-	char * s;
+	char *s;
 
 	n = 1;
 /*n is 4 bytes in the order 1 0 0 0 (LE)or 0 0 0 1 (BE)*/
 /*convert n to a string to have access to all bytes*/
-	s = (char *) &n;
+	s = (char *)&n;
 
 	return (*s);
 }

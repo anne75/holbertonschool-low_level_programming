@@ -16,7 +16,7 @@ void print_binary(unsigned long int n)
 	if (n == 0)
 	{
 		_putchar('0');
-		return ;
+		return;
 	}
 /*base case n at beginning > 0 I have reached most significant bit*/
 	if ((n ^ 1) == 0)
