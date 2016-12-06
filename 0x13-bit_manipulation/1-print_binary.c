@@ -5,8 +5,7 @@
  * print_binary - print binary representation of number
  * @n: number, unsigned
  * Do not use array, malloc, % and /
- * Problem : if n == 0, print 0 otherwise do not print
- * front 0, so use helper
+ *
  * Return: void
  */
 void print_binary(unsigned long int n)
@@ -30,3 +29,11 @@ void print_binary(unsigned long int n)
 	_putchar(c);
 
 }
+
+/* due to constraints, use recursion
+ * there are 2 base cases: if we want print_binary(0), we have
+ * to return 0, however in any other case we do not want to start
+ * with a 0 so we stop at the leftmost digit that is = 1, ie
+ * the most significant digit, we know it exists since the number
+ * is > 0
+ */

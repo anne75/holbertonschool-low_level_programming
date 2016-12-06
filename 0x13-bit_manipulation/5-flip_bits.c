@@ -43,3 +43,12 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	count += helper(n) + helper(m);
 	return (count);
 }
+
+
+/*I divide the task in 2
+ *as long as numbers n and m are > 0 I compare their
+ *last bit, and then I shift the numbers by 1 to the right
+ *pretty much at each loop I divide the number by 2
+ *then I reach a point where n or/and m are 0, so I need
+ *to compute the number of bits == 1 in the rest of the number
+ */
