@@ -50,8 +50,10 @@ void _closeerror(int fd)
 
 	i = close(fd);
 	if (i == -1)
+	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
-	exit(100);
+		exit(100);
+	}
 }
 
 /**
@@ -85,16 +87,16 @@ int main(int ac, char **av)
 		if (nr == -1)
 		{
 			dprintf(STDERR_FILENO, "%s %s\n", FR_ERROR, av[1]);
-			/*_closeerror(fw);
-			  _closeerror(fr);*/
+			_closeerror(fw);
+			_closeerror(fr);
 			exit(98);
 		}
 		nw = write(fw, &buffer, nr);
 		if (nw != nr)
 		{
 			dprintf(STDERR_FILENO, "%s %s\n", FW_ERROR, av[2]);
-			/*_closeerror(fw);
-			  _closeerror(fr);*/
+			_closeerror(fw);
+			_closeerror(fr);
 			exit(99);
 		}
 	}
