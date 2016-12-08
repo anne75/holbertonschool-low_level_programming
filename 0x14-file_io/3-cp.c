@@ -25,14 +25,14 @@ int _strlen(char *s)
 
 /**
  *_printexit - print to stderr and exit
- * @fd: file descriptor
+ * @flag: flag
  * @s: message
  * @file_name: file name
  * @exitnb: exit number
  */
-void _printexit(int fd, char *s, char *file_name, int exitnb)
+void _printexit(int flag, char *s, char *file_name, int exitnb)
 {
-	if (fd == 0)
+	if (flag == 0)
 		dprintf(STDERR_FILENO, "%s\n", s);
 	else
 		dprintf(STDERR_FILENO, "%s %s\n", s, file_name);
@@ -73,17 +73,16 @@ int main(int ac, char **av)
 		_printexit(0, ARG_ERROR, NULL, 97);
 	fr = open(av[1], O_RDONLY);
 	if (fr == -1)
-		_printexit(fr, FR_ERROR, av[1], 98);
+		_printexit(1, FR_ERROR, av[1], 98);
 	fw = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
 	if (fw == -1)
 	{
 		_closeerror(fr);
-		_printexit(fw, FW_ERROR, av[2], 99);
+		_printexit(1, FW_ERROR, av[2], 99);
 	}
 	nr = 1;
-	while (nr > 0)
+	while ((nr = read(fr, &buffer, BUF_LENGTH)) != 0)
 	{
-		nr = read(fr, &buffer, BUF_LENGTH);
 		if (nr == -1)
 		{
 			dprintf(STDERR_FILENO, "%s %s\n", FR_ERROR, av[1]);
