@@ -20,6 +20,25 @@ int _strlen(char *s)
 }
 
 
+
+/**
+ * _closeerror - try to close file and error message
+ * @fd: should be a file descriptor
+ * @Return: 0 on success, -1 on failure
+ */
+int _closeerror(int fd)
+{
+	int i;
+
+	i = close(fd);
+	if (i == -1)
+	{
+		dprintf(2, "Error: Can't close fd %i\n", fd);
+		return (-1);
+	}
+	return (0);
+}
+
 /**
  * main - copy content of a file to another file
  * @ac: number of arguments passed
@@ -62,7 +81,9 @@ int main(int ac, char **av)
 			dprintf(2, "Houston, we have a problem\n");
 		nr = read(fr, &buffer, BUF_LENGTH);
 	}
-	close(fr);
-	close(fw);
+
+	if (_closeerror(fw) == -1 || _closeerror(fr) == -1)
+		exit(100);
+
 	return (0);
 }
