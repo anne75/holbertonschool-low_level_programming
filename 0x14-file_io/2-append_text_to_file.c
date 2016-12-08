@@ -18,14 +18,16 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 	if (!text_content)
+	{
+		close(fd);
 		return (1);
-
+	}
 /*get string length*/
 	for (l = 0; *(text_content + l) != '\0'; ++l)
 		;
 	nw = write(fd, text_content, l);
 	close(fd);
-	if (nw < 0)
+	if (nw != l)
 		return (-1);
 	return (1);
 }
