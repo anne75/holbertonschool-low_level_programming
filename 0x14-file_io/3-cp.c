@@ -24,7 +24,7 @@ int _strlen(char *s)
 /**
  * _closeerror - try to close file and error message
  * @fd: should be a file descriptor
- * @Return: 0 on success, -1 on failure
+ * Return: 0 on success, -1 on failure
  */
 int _closeerror(int fd)
 {
