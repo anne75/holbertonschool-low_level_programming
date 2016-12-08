@@ -51,13 +51,13 @@ int main(int ac, char **av)
 	int fr, fw, nr, nw;
 	char buffer[BUF_LENGTH];
 
-	char *arg_error = "Usage: cp file_from file_to\n";
+/*	char *arg_error = "Usage: cp file_from file_to\n";*/
 	char *fr_error = "Error: Can't read from file";
 	char *fw_error = "Error: Can't write to";
 
 	if (ac != 3)
 	{
-		write(2, arg_error, _strlen(arg_error));
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -67,7 +67,7 @@ int main(int ac, char **av)
 		dprintf(2, "%s %s\n", fr_error,  av[1]);
 		exit(98);
 	}
-	fw = open(av[2], O_WRONLY | O_CREAT, 0664);
+	fw = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fw == -1)
 	{
 		dprintf(2, "%s %s\n", fw_error, av[2]);
