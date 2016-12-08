@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * create_file - create a file with content inside
@@ -27,14 +28,10 @@ int create_file(const char *filename, char *text_content)
 		;
 
 	nw = write(fd, text_content, l);
-	if (nw == -1)
+	if (nw == -1 || close(fd) == -1 || nw != l)
 	{
-		close(fd);
 		return (-1);
 	}
-	close(fd);
-	if (nw == l)
-		return (1);
-
-	return (-1);
+	return (1);
 }
+
