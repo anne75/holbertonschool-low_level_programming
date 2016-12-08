@@ -75,7 +75,7 @@ int main(int ac, char **av)
 	fw = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
 	if (fw == -1)
 	{
-		_closeerror(fw);
+		_closeerror(fr);
 		_printexit(fw, FW_ERROR, av[2], 99);
 	}
 	nr = 1;
