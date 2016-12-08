@@ -2,6 +2,9 @@
 #include <stdio.h>
 
 #define BUF_LENGTH 1204
+#define ARG_ERROR  "Usage: cp file_from file_to"
+#define FR_ERROR "Error: Can't read from file"
+#define FW_ERROR "Error: Can't write to"
 
 /**
  * _strlen - get length of string
@@ -64,35 +67,34 @@ int main(int ac, char **av)
 	char buffer[BUF_LENGTH];
 	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
-	char *arg_error = "Usage: cp file_from file_to";
-	char *fr_error = "Error: Can't read from file";
-	char *fw_error = "Error: Can't write to";
-
 	if (ac != 3)
-		_printexit(0, arg_error, NULL, 97);
+		_printexit(0, ARG_ERROR, NULL, 97);
 	fr = open(av[1], O_RDONLY);
 	if (fr == -1)
-		_printexit(fr, fr_error, av[1], 98);
+		_printexit(fr, FR_ERROR, av[1], 98);
 	fw = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
 	if (fw == -1)
-		_printexit(fw, fw_error, av[2], 99);
+	{
+		_closeerror(fw);
+		_printexit(fw, FW_ERROR, av[2], 99);
+	}
 	nr = 1;
 	while (nr > 0)
 	{
 		nr = read(fr, &buffer, BUF_LENGTH);
 		if (nr == -1)
 		{
-			dprintf(STDERR_FILENO, "%s %s\n", fr_error, av[1]);
-			_closeerror(fw);
-			_closeerror(fr);
+			dprintf(STDERR_FILENO, "%s %s\n", FR_ERROR, av[1]);
+			/*_closeerror(fw);
+			  _closeerror(fr);*/
 			exit(98);
 		}
 		nw = write(fw, &buffer, nr);
 		if (nw != nr)
 		{
-			dprintf(STDERR_FILENO, "%s %s\n", fw_error, av[2]);
-			_closeerror(fw);
-			_closeerror(fr);
+			dprintf(STDERR_FILENO, "%s %s\n", FW_ERROR, av[2]);
+			/*_closeerror(fw);
+			  _closeerror(fr);*/
 			exit(99);
 		}
 	}
