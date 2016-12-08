@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 
-#define BUF_LENGTH 1024
+#define BUF_LENGTH 1204
 
 /**
  * _strlen - get length of string
@@ -32,7 +32,7 @@ void _printexit(int fd, char *s, char *file_name, int exitnb)
 	if (fd == 0)
 		dprintf(STDERR_FILENO, "%s\n", s);
 	else
-		dprintf(STDERR_FILENO, "%s %s\n",s, file_name);
+		dprintf(STDERR_FILENO, "%s %s\n", s, file_name);
 	exit(exitnb);
 }
 
@@ -80,7 +80,7 @@ int main(int ac, char **av)
 	while (nr > 0)
 	{
 		nr = read(fr, &buffer, BUF_LENGTH);
-		if (nr < 0)
+		if (nr == -1)
 		{
 			dprintf(STDERR_FILENO, "%s %s\n", fr_error, av[1]);
 			_closeerror(fw);
