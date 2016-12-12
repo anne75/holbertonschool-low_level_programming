@@ -114,14 +114,15 @@ ssize_t _getline(char **buf, size_t *size)
 				return (-1);
 			break;
 		}
+/*do not get the new line*/
+		if (c == '\n')
+			break;
 		position = check_buffer(position, size, index);
 		if (*buf == NULL)
 			return (-1);
 		*(position + index) = c;
 /*		printf("%s %i %lu %c\n", __FILE__, __LINE__, index, *(position + index));*/
 		++index;
-		if (c == '\n')
-			break;
 	}
 	*(position + index) = '\0'; /*room because check*/
 /*	printf("%s %i %s %lu\n", __FILE__, __LINE__, position, index);*/

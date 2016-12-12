@@ -68,6 +68,7 @@ char *_getw(char *s, char *dest, int l)
  * As it is, words can be separated by the delimeter, this delimeter
  * can be repeated, but several delimeters cannot be used at the same
  * time eg ':' and ' ' as in word: other
+ * It is NULL terminated
  * Return: pointer to pointer to char
  */
 char **strtow(char *str, char delimeter)
