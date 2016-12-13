@@ -4,9 +4,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 
 #define BUF_LENGTH 64
+#define LINE_LENGTH 20
 /*#define EOF (-1)*/
 
 /* structs */
@@ -46,6 +49,7 @@ int _setenv(const char *name, const char *value, int overwrite);
 char **strtow(char *str, char delimeter);
 void free_strtow(char **s);
 
-
+/*in prompt*/
+char *prompt(void);
 
 #endif

@@ -96,6 +96,7 @@ char **strtow(char *str, char delimeter)
 		if (word == 1)
 		{
 			word = 0;
+			printf("%s %i\n", __FILE__, __LINE__);
 			l = _strw(str + j, delimeter);
 			s[i] = malloc((l + 1) * sizeof(**s));
 			if (s[i] == NULL)
