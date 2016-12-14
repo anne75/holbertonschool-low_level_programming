@@ -16,15 +16,17 @@
 /* structs */
 
 /**
- * path_s - node for the path linked list
- * @path: a string containing the path
+ * node_s - generic node for all lists
+ * @name: a string containing the  name
+ * @value: value, executable or NULL
  * @next: pointer to next node
  */
-typedef struct path_s
+typedef struct node_s
 {
-	char *path;
-	struct path_s *next;
-} path_t;
+	char *name;
+	char *value;
+	struct node_s *next;
+} node_t;
 
 
 ssize_t _getline(char **, size_t *);
@@ -37,13 +39,13 @@ char *_memcpy(char *dest, const char *src, unsigned int n);
 char *_strchr(char *s, char c);
 
 /*in helper_list*/
-path_t *add_node_end(path_t **head, const char *str);
-void free_list(path_t *head);
+node_t *add_node_end(node_t **head, const char *, const char *);
+void free_list(node_t *head);
 
 /*in environment*/
 char *_getenv(const char *name);
 void print_path(void);
-path_t *link_path(path_t **head);
+node_t *link_path(node_t **head);
 int _setenv(const char *name, const char *value, int overwrite);
 int _setenv(const char *name, const char *value, int overwrite);
 

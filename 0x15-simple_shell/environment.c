@@ -50,11 +50,11 @@ void print_path(void)
  * @head: pointer to start of list
  * Return: pointer to linked list, NULL otherwise
  */
-path_t *link_path(path_t **head)
+node_t *link_path(node_t **head)
 {
 	int i;
 	char **result;
-	path_t *check;
+	node_t *check;
 
 	result = strtow(_getenv("PATH"), ':');
 	if (result == NULL)
@@ -63,7 +63,7 @@ path_t *link_path(path_t **head)
 	while (result[i] != NULL)
 	{
 /*		printf("%s %i, %s\n", __FILE__, __LINE__, result[i]);*/
-		check = add_node_end(head, result[i]);
+		check = add_node_end(head, result[i], NULL);
 		if (check == NULL)
 		{
 			free_list(*head);
