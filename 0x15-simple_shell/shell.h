@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 
 #define BUF_LENGTH 64
@@ -33,6 +34,7 @@ int _strlen(const char *);
 int check_first(char *, const char*);
 char *_strdup(const char *str);
 char *_memcpy(char *dest, const char *src, unsigned int n);
+char *_strchr(char *s, char c);
 
 /*in helper_list*/
 path_t *add_node_end(path_t **head, const char *str);
@@ -51,5 +53,8 @@ void free_strtow(char **s);
 
 /*in prompt*/
 char *prompt(void);
+
+/*in getfunction*/
+char *which(char *name);
 
 #endif

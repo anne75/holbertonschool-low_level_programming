@@ -3,7 +3,7 @@
 
 
 /**
- * main - read a line
+ * main - get a line containing a command, parses it and executes
  *
  * Return: always 0
  */
@@ -11,9 +11,10 @@ int main(void)
 {
 	char *line;
 	char **args;
+/*	char *function;*/
 	pid_t childpid;
 	int status;
-	int i;
+/*	int i;*/
 
 	while (1)
 	{
@@ -32,11 +33,13 @@ int main(void)
 			printf("simple shell: strtow ran into error\n");
 			exit(98);
 		}
-		for(i = 0; args[i] != NULL; ++i)
-			printf("-%s-",args[i]);
-		puts("HELLO");
+/*		for(i = 0; args[i] != NULL; ++i)
+		printf("-%s-",args[i]);*/
+/*		puts("HELLO");*/
+/*		function = which(args[0]);
+		printf("simple shell function %s\n", function);*/
 		childpid = fork();
-		puts("WORLD");
+/*		puts("WORLD");*/
 		if (childpid == 0)
 		{
 			printf("simple shell: in child process\n");

@@ -62,6 +62,7 @@ path_t *link_path(path_t **head)
 	i = 0;
 	while (result[i] != NULL)
 	{
+/*		printf("%s %i, %s\n", __FILE__, __LINE__, result[i]);*/
 		check = add_node_end(head, result[i]);
 		if (check == NULL)
 		{
