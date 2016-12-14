@@ -20,7 +20,8 @@ char *prompt(void)
 	if (line == NULL)
 		return (NULL);
 	write(1, "$ ", 2);
-	nline = _getline(&line, &length); /*prototype is char **/
+/*	nline = _getline(&line, &length);*/
+	nline = getline(&line, &length, stdin);
 	for (i = 0; i < nline; ++i)
 		printf("%d-", line[i]);
 	if (nline == -1)

@@ -34,20 +34,22 @@ int main(void)
 		}
 		for(i = 0; args[i] != NULL; ++i)
 			printf("-%s-",args[i]);
-		puts("");
+		puts("HELLO");
 		childpid = fork();
+		puts("WORLD");
 		if (childpid == 0)
 		{
 			printf("simple shell: in child process\n");
 			if (execve(args[0], (char *const *) args, NULL) == -1)
 			{
-				perror("Error:");
+				perror("Child Error:");
+				return (-1);
 			}
 		}
 		else
 		{
 			waitpid(childpid, &status, 0);
-			printf("in parent: child process is %u\n", childpid);
+			printf("in parent: child process is %u status is %i current pid is %u\n", childpid, status, getpid());
 		}
 	}
 	return (0);
