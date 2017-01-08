@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * getdnodeint_at_index - return the node at index
+ * get_dnodeint_at_index - return the node at index
  * @head: pointer to a dll
  * @index: index of the node
  * Return: pointer to node
