@@ -117,7 +117,7 @@ int main(int ac, char **av)
 
 	char *s1 = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKI\314uk";
 
-	if (ac != 2)
+	if (ac < 2)
 		return (1);
 	if (strlen(av[1]) < 1)
 		return (1);
