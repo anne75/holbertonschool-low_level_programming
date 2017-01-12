@@ -2,51 +2,31 @@
 #include <string.h>
 #include <stdlib.h>
 
-
-/**
- * f1 - p zero
- * @a: longueur name
- * Return: int
- */
-int f1(int a)
-{
-	return ((a ^ 59) & 63);
-}
-
 /**
  * f2 - p 1
  * @name: name
  * @len: length of name
+ * @flag: diff between f2 and defunct f3
  * Return: int
  */
-int f2(char *name, int len)
+int f2(char *name, int len, int flag)
 {
 
 	int a, b;
 
-	a = 0;
 	b = 0;
-	while (b < len)
+
+	if (flag)
 	{
-		a += name[b];
-		++b;
+		a = 0;
+		while (b < len)
+		{
+			a += name[b];
+			++b;
+		}
+		return ((a ^ 79) & 63);
 	}
-	return ((a ^ 79) & 63);
-}
-
-/**
- * f3 - p 2
- * @name: name
- * @len: length of name
- * Return: int
- */
-int f3(char *name, int len)
-{
-
-	int a, b;
-
 	a = 1;
-	b = 0;
 	while (b < len)
 	{
 		a *= name[b];
@@ -133,6 +113,7 @@ int main(int ac, char **av)
 {
 	char *name;
 	char password[7];
+	int len;
 
 	char *s1 = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKI\314uk";
 
@@ -141,13 +122,14 @@ int main(int ac, char **av)
 	if (strlen(av[1]) < 1)
 		return (1);
 	name = av[1];
-	password[0] = *(s1 + f1(strlen(name)));
-	password[1] = *(s1 + f2(name, strlen(name)));
-	password[2] = *(s1 + f3(name, strlen(name)));
-	password[3] = *(s1 + f4(name, strlen(name)));
-	password[4] = *(s1 + f5(name, strlen(name)));
+	len = strlen(name);
+	password[0] = *(s1 + ((len ^ 59) & 63));
+	password[1] = *(s1 + f2(name, len, 1));
+	password[2] = *(s1 + f2(name, len, 0));
+	password[3] = *(s1 + f4(name, len));
+	password[4] = *(s1 + f5(name, len));
 	password[5] = *(s1 + f6(name[0]));
-	password[7] = '\0';
+	password[6] = '\0';
 	printf("%s", password);
 	return (0);
 }
