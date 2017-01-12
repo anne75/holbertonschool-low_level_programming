@@ -115,7 +115,8 @@ int main(int ac, char **av)
 	char password[7];
 	int len;
 
-	char *s1 = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKI\314uk";
+	char *s1 = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fx"
+		"qZeF3Qa1rPhdKIouk";
 
 	if (ac < 2)
 		return (1);
