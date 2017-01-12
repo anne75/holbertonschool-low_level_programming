@@ -119,8 +119,7 @@ int main(int ac, char **av)
 
 	if (ac < 2)
 		return (1);
-	if (strlen(av[1]) < 1)
-		return (1);
+
 	name = av[1];
 	len = strlen(name);
 	password[0] = *(s1 + ((len ^ 59) & 63));
