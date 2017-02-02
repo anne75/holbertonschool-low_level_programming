@@ -13,7 +13,7 @@ int _strcmp(char *s1, char *s2)
 	if (!s1 || !s2)
 		return (1);
 	i = 0;
-	while (*(s1 +i ) && *(s2 + i) && *(s1 + i) == *(s2 + i))
+	while (*(s1 + i) && *(s2 + i) && *(s1 + i) == *(s2 + i))
 		++i;
 
 	return (*(s1 + i) - *(s2 + i));
@@ -21,7 +21,7 @@ int _strcmp(char *s1, char *s2)
 
 
 /**
- * has_table_set - add an element to a hash table
+ * hash_table_set - add an element to a hash table
  * @ht: pointer to hash table
  * @key: key value
  * @value: value to add to the has table
