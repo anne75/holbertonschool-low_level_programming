@@ -21,6 +21,30 @@ int _strcmp(char *s1, char *s2)
 
 
 /**
+ * free_ht - free a hash table
+ * @ht: hash table
+ */
+void free_ht(hash_table_t *ht)
+{
+	unsigned long int i;
+	hash_node_t *node, *tmp;
+
+	for (i = 0; i < ht->size; ++i)
+	{
+		node = (ht->array)[i];
+		while (node)
+		{
+			tmp = node;
+			node = node->next;
+			free(tmp);
+		}
+	}
+	free(ht->array);
+	free(ht);
+}
+
+
+/**
  * hash_table_set - add an element to a hash table
  * @ht: pointer to hash table
  * @key: key value
@@ -53,7 +77,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 /*create new node*/
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
+	{
+		free_ht(ht);
 		return (0);
+	}
 	new->key = (char *)key;
 	new->value = (char *)value;
 	new->next = NULL;
