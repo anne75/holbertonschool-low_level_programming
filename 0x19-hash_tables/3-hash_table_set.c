@@ -20,28 +20,28 @@ int _strcmp(char *s1, char *s2)
 }
 
 
-/**
- * free_ht - free a hash table
- * @ht: hash table
+/* /\** */
+/*  * free_ht - free a hash table */
+/*  * @ht: hash table */
+/*  *\/ */
+/* void free_ht(hash_table_t *ht)
+ *{
+ *unsigned long int i;
+ *hash_node_t *node, *tmp;
+ *for (i = 0; i < ht->size; ++i)
+ *{
+ *node = (ht->array)[i];
+ *while (node)
+ *{
+ *tmp = node;
+ *node = node->next;
+ *free(tmp);
+ *}
+ *}
+ *free(ht->array);
+ *free(ht);
+ *}
  */
-void free_ht(hash_table_t *ht)
-{
-	unsigned long int i;
-	hash_node_t *node, *tmp;
-
-	for (i = 0; i < ht->size; ++i)
-	{
-		node = (ht->array)[i];
-		while (node)
-		{
-			tmp = node;
-			node = node->next;
-			free(tmp);
-		}
-	}
-	free(ht->array);
-	free(ht);
-}
 
 
 /**
@@ -61,7 +61,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	hash = key_index((const unsigned char *)key, ht->size);
-
 /*update node*/
 	new = (ht->array)[hash];
 	while (new && _strcmp(new->key, (char *)key))
@@ -73,12 +72,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		new->value = (char *)value;
 		return (1);
 	}
-
 /*create new node*/
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 	{
-		free_ht(ht);
+		/*free_ht(ht);*/
 		return (0);
 	}
 	new->key = (char *)key;
