@@ -155,7 +155,10 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 
 }
 
-
+/**
+ * shash_table_print - print a sorted hash table in increasing order
+ * @ht: hash table, sorted
+ */
 void shash_table_print(const shash_table_t *ht)
 {
 	shash_node_t *node;
@@ -174,6 +177,10 @@ void shash_table_print(const shash_table_t *ht)
 
 }
 
+/**
+ * shash_table_print_rev - print a sorted hash table in decreasing order
+ * @ht: sorted hash table
+ */
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *node;
