@@ -97,12 +97,12 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	hash = key_index((const unsigned char *)key, ht->size);
 /*update node*/
 	new = (ht->array)[hash];
-	while (new && _strcmp(new->key, (char *)key))
+	while (new && strcmp(new->key, (char *)key))
 		new = new->next;
 	if (new)
 		new->value = (char *)value;
 	new = ht->shead;
-	while (new && _strcmp(new->key, (char *)key))
+	while (new && strcmp(new->key, (char *)key))
 		new = new->snext;
 	if (new)
 	{
@@ -143,10 +143,12 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	hash = key_index((const unsigned char *)key, ht->size);
 
 	if ((ht->array)[hash] == NULL)
+	{
+		puts("no key");
 		return (NULL);
-
+	}
 	node = (ht->array)[hash];
-	while (node && _strcmp(node->key, (char *)key))
+	while (node && strcmp(node->key, (char *)key))
 		node = node->next;
 
 	if (!node)

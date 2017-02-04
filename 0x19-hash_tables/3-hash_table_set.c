@@ -1,25 +1,5 @@
 #include "hash_tables.h"
 
-/**
- * _strcmp - compare 2 strings
- * @s1: a string
- * @s2: a string
- * Return: difference in character at first mismatch
- */
-int _strcmp(char *s1, char *s2)
-{
-	int i;
-
-	if (!s1 || !s2)
-		return (1);
-	i = 0;
-	while (*(s1 + i) && *(s2 + i) && *(s1 + i) == *(s2 + i))
-		++i;
-
-	return (*(s1 + i) - *(s2 + i));
-}
-
-
 /* /\** */
 /*  * free_ht - free a hash table */
 /*  * @ht: hash table */
@@ -63,7 +43,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash = key_index((const unsigned char *)key, ht->size);
 /*update node*/
 	new = (ht->array)[hash];
-	while (new && _strcmp(new->key, (char *)key))
+	while (new && strcmp(new->key, (char *)key))
 	{
 		new = new->next;
 	}

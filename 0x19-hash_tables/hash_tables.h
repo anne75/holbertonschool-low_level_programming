@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * struct hash_node_s - node for hah table
@@ -80,7 +81,6 @@ unsigned long int hash_djb2(const unsigned char *str);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 
 /*question 3*/
-int _strcmp(char *s1, char *s2);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 
 /*question 4*/
