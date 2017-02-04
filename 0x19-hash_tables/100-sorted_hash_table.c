@@ -150,6 +150,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			if (!s)
 				return (0);
 		}
+		if (new->value)
+			free(new->value);
 		new->value = s;
 		return (1);
 	}
@@ -262,4 +264,33 @@ void hash_table_printt(const shash_table_t *ht)
 		}
 	}
 	puts("}");
+}
+
+/**
+ * shash_table_delete - delete a sorted hash table
+ * @ht: a hash table
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	unsigned long int i;
+	shash_node_t *node, *tmp;
+
+	for (i = 0; i < ht->size; ++i)
+	{
+		node = (ht->array)[i];
+		while (node)
+		{
+			tmp = node;
+			node = node->next;
+			free(tmp->key);
+			tmp->key = NULL;
+			free(tmp->value);
+			tmp->value = NULL;
+			free(tmp);
+		}
+	}
+	free(ht->array);
+	ht->array = NULL;
+	free(ht);
+	ht = NULL;
 }
