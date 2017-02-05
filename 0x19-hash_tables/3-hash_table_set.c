@@ -1,29 +1,5 @@
 #include "hash_tables.h"
 
-/* /\** */
-/*  * free_ht - free a hash table */
-/*  * @ht: hash table */
-/*  *\/ */
-/* void free_ht(hash_table_t *ht)
- *{
- *unsigned long int i;
- *hash_node_t *node, *tmp;
- *for (i = 0; i < ht->size; ++i)
- *{
- *node = (ht->array)[i];
- *while (node)
- *{
- *tmp = node;
- *node = node->next;
- *free(tmp);
- *}
- *}
- *free(ht->array);
- *free(ht);
- *}
- */
-
-
 /**
  * hash_table_help - create a node
  * @ht: hash table
@@ -51,11 +27,15 @@ int hash_table_help(hash_table_t *ht, const char *key,
 		return (0);
 	}
 	new->key = s;
-	s = strdup(value);
-	if (!s)
+	s = NULL;
+	if (value)
 	{
-		free(new->key), free(new);
-		return (0);
+		s = strdup(value);
+		if (!s)
+		{
+			free(new->key), free(new);
+			return (0);
+		}
 	}
 	new->value = s;
 	new->next = NULL;
@@ -99,6 +79,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		s = strdup(value);
 		if (!s)
 			return (0);
+		if (new->value)
+			free(new->value);
 		new->value = s;
 		return (1);
 	}
