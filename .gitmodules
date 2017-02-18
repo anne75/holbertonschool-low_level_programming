@@ -1,3 +1,4 @@
 [submodule "0x1A-sorting_algorithms"]
 	path = 0x1A-sorting_algorithms
 	url = https://github.com/anne75/sorting_algorithms
+	branch = master
