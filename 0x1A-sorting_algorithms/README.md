@@ -1,8 +1,6 @@
 # Sorting Algorithms in C
 
-Too lazy to go again in the bubble file to add comments.  
-It seems like working.  
-Not sure i needs to loop to n, maybe n - 1 is enough  
-best case scenario: sorted ?  
-worst case: reverse sorted, how many times do we loop ?  
-average: ?  
+This project is a compilation of several sorting algorthims along with their time complexity.
+It is organized this way:  
+- a x-name.c file with the algorithm name implemented  
+- a O-x file with the time complexity, best case, average case and worst case.  
