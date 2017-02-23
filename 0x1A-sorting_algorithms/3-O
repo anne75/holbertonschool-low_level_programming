@@ -1,0 +1,7 @@
+O(nlog(n))
+O(nlog(n))
+O(n^2)
+
+best case: partition divides array by half
+worst cases: either array already sorted, partition does not divide array
+or duplicate keys

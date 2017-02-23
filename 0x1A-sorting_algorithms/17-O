@@ -1,0 +1,11 @@
+O(n)
+O(1)
+O(1)
+O(n)
+O(1)
+
+1 - access nth element in a doubly linked list
+2 - inserting at n + 1 when pointing at n
+3 - deleting at n when pointing at n
+4 - searching for an element
+5 - setting value at the node I am pointing to

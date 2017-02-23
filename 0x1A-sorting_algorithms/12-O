@@ -1,0 +1,4 @@
+O(2^n)
+
+Fibonacci recursion, more explanation http://stackoverflow.com/a/360773/7484498
+c(n) = c(n - 1) + c(n - 2)

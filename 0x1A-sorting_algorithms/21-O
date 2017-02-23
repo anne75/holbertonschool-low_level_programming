@@ -1,0 +1,15 @@
+O(1)
+O(n)
+O(1)
+O(n)
+O(1)
+O(n)
+
+Values after done calculating hash which is O(n)
+the hash table does chaining
+1 - searching hash table best case
+2 - searching, worst case
+3 - insertion, best case
+4 - insertion, worst case as insert at the beginning
+5 - deletion, best case
+6 - deletion, worst case, at the end of the chain

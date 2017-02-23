@@ -1,0 +1,3 @@
+O(n)  best case: already sorted
+O(n^2)
+O(n^2) worst case: reverse sorted

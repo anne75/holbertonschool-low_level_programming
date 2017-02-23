@@ -1,0 +1,12 @@
+O(n)
+O(1)
+O(n)
+O(n)
+O(1)
+
+1 - access the nth element in a singly linked list
+2 - inserting an element at n + 1 when you are pointing at n
+3 - deleting an element at n when you are pointing at n and head (?)
+as need to go to n - 1
+4 - searching
+5 - setting value

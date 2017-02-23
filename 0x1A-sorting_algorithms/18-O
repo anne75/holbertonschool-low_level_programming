@@ -1,0 +1,12 @@
+O(1)
+O(n)
+O(n)
+O(n)
+O(1)
+
+1 - python 3 lists are resizing arrays access is fast
+2 - inserting at n is O(1) if n is the size of the list in amortized time,
+O(n) otherwise like an array
+3 - deleting at n is the same
+4 - searching for a value if size is n
+5 - setting a value

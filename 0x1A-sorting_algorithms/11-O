@@ -1,0 +1,4 @@
+O(n^2)
+
+being quadratic half the time rounds up quadratic
+O(n/2 * log(n) + n/2 * n/2)

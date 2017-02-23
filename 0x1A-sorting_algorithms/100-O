@@ -1,0 +1,2 @@
+Time complexity depends on gap for shellsort
+Here for Pratt gap sequence: worst case is O(n^(3/2))
