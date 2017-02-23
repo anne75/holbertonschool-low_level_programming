@@ -1,3 +1,1 @@
 O(nlog(n))
-
-outer loop increment by 1 and inner loop independent increment * 2
