@@ -8,7 +8,8 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	unsigned int i, j, tmp, swap;
+	size_t i, j, swap;
+	int tmp;
 
 	if (!array || size < 2)
 		return;
