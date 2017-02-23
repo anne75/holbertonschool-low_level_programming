@@ -1,69 +1,124 @@
 #include "sort.h"
 
-size_t mysize;
+/**
+ * partition - matching teacher's output Hoare
+ *
+ * @array: array of int
+ * @lo: lowest index to compare
+ * @hi: highest index to compare
+ * @size: size of array (for printing)
+ * The pivot is assigned to be the last element in the partition
+ * Return: point of convergence between lo and hi
+ */
+size_t partition(int *array, size_t lo, size_t hi, size_t size)
+{
+	size_t i, j;
+	int tmp, pivot;
+
+	pivot = array[hi];
+	i = lo - 1;
+	j = hi + 1;
+	while (1)
+	{
+		do {
+			--j;
+		} while (array[j] > pivot);
+		do {
+			++i;
+		} while (array[i] < pivot);
+		if (i < j)
+		{
+			tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
+			print_array(array, size);
+		}
+		else
+		{
+			return (i);
+		}
+	}
+}
+
 
 /**
- * quick_sort -
- *
- * @array: array to sort
- *
+ * partition_2 - partition ?
+ * @array: array of int
+ * @lo: lowest index to compare
+ * @hi: highest index to compare
+ * @size: size of array (for printing)
+ * The pivot is assigned to be the last element in the partition
+ * Return: point of convergence between lo and hi
+ */
+size_t partition_2(int *array, size_t lo, size_t hi, size_t size)
+{
+	size_t i, j;
+	int tmp;
+
+	i = lo - 1;
+	j = hi;
+
+	while (1)
+	{
+/* all values to the left of pivot must be < pivot */
+		while (array[++i] < array[hi])
+		{
+			if (i >= hi)
+				break;
+		}
+/* all values to the right must be > pivot */
+		while (array[--j] > array[hi])
+		{
+			if (j <= lo)
+				break;
+		}
+		if (i >= j)
+			break;
+		tmp = array[i];
+		array[i] = array[j];
+		array[j] = tmp;
+		print_array(array, size);
+	}
+	if (i != hi) /*put pivot in its right place*/
+	{
+		tmp = array[hi];
+		array[hi] = array[i];
+		array[i] = tmp;
+		print_array(array, size);
+	}
+	return (i); /*return index of pivot*/
+}
+
+/**
+ * qs_recursion - quick sort core
+ * @array: array of in
+ * @lo: lower index
+ * @hi: higher index
+ * @size: size of array
+ */
+void qs_recursion(int *array, size_t lo, size_t hi, size_t size)
+{
+	size_t p;
+
+	if (hi <= lo)
+		return;
+	p = partition(array, lo, hi, size);
+	if (p > 0) /* not necessary, not ready to take it away */
+		qs_recursion(array, lo, p - 1, size);
+	qs_recursion(array, p, hi, size);
+}
+/* use p + 1 instead of p on last line for partition 2*/
+
+
+/**
+ * quick_sort - sort an array with quick sort
+ * @array: array of int
  * @size: size of array
  */
 void quick_sort(int *array, size_t size)
 {
-	int start, end;
 
-	start = 0;
-	mysize = size;
-	end = size - 1;
-	sort(array, start, end);
-}
-
-/**
- * sort - quick sort algorithm, recursively divides @array into 2 sides, sorted
- * w/ respect to eachother (no values in first side greater than right values)
- *
- * @array: array to sort
- *
- * @start: starting point of subarray
- *
- * @end: endpoint of subarray
- */
-void sort(int *array, size_t start, size_t end)
-{
-	size_t left, right;
-	int pivot;
-
-	if (end - start < 2)
+	if (!array || size < 2)
 		return;
-	pivot = array[start];
-	left = start - 1;
-	right = end + 1;
-	while (1)
-	{
-		do left++; while (array[left] < pivot);
-		do right--; while (array[right] > pivot);
-		if (left >= right)
-			break;
-		swap(array, left, right);
-		print_array(array, 10);
-	}
-	sort(array, start, right + 1);
-	sort(array, right + 1, end);
-}
-
-/**
- * swap - swap two array element values
- *
- * @array: array
- * @a: index of first value to swap
- * @b: index of second value to swap
- */
-void swap(int *array, size_t a, size_t b)
-{
-	int swap_in;
-
-	swap_in = array[a];
-	array[a] = array[b];
-	array[b] = swap_in;
+	qs_recursion(array, 0, size - 1, size);
 }
