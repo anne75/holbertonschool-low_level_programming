@@ -52,5 +52,7 @@ void merge_sort(int *array, size_t size);
 /*104-heap_sort*/
 void heap_sort(int *array, size_t size);
 
+/*105-radix_sort*/
+void radix_sort(int *array, size_t size);
 
 #endif
