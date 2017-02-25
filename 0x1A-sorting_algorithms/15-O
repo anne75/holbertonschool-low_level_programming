@@ -3,9 +3,3 @@ O(n)
 O(n)
 O(n)
 O(1)
-
-1 - arrays are indexed, so access is fast
-2 - inserting requires to shift others around
-3 - deleting required to shift indexes around
-4 - searching for a value
-5 - setting a value at a given index
