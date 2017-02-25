@@ -1,7 +1,3 @@
 O(1)
 O(1)
 O(n)
-
-1 - push on stack
-2 - pop on stack
-3 - search on stack
