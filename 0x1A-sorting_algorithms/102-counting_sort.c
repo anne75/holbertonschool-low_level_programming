@@ -53,8 +53,8 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 1; i < size_counts; ++i)
 		counts[i] += counts[i - 1];
-	/* i <-> array[i] and counts[i] - 1 is the last index to place i in*/
-	/* sorted array, with Sedgewicks method, it would be neat */
+	/* i <-> array[i] and counts[i - 1] is the last index to place i in*/
+	/* sorted array, with Sedgewick's method, it would be neat */
 	print_array(counts, size_counts);
 
 	for (j = 0; j < size; ++j)
