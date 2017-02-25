@@ -57,9 +57,7 @@ void radix_sort(int *array, size_t size)
 
 	if (!array || size < 2)
 		return;
-
 	max_number = _max(array, size);
-
 	count = malloc(sizeof(int) * 11);
 	if (!count)
 		return;
@@ -69,28 +67,23 @@ void radix_sort(int *array, size_t size)
 		free(count);
 		return;
 	}
-
 	nb_digit = get_nb_digits(max_number);
-/*	printf("nb_digit %i\n", nb_digit);*/
 	divisor = 1;
 	for (i = 1; i <= nb_digit; ++i)
 	{
-		for(j = 0; j < 11; ++j)
+		for (j = 0; j < 11; ++j)
 			count[j] = 0;
-/*		print_array(count, 11);*/
 		for (jprime = 0; jprime < size; ++jprime)
 			count[(array[jprime] / divisor) % 10 + 1] += 1;
-/*		print_array(count, 11);*/
 		for (j = 1; j < 11; ++j)
 			count[j] += count[j - 1];
 		for (jprime = 0; jprime < size; ++jprime)
 		{
 			k = (array[jprime] / divisor) % 10;
-/*			printf("index j %lu arr...%i, k %i count[k] %i\n", jprime, array[jprime], k, count[k]);*/
 			tmp[count[k]] = array[jprime];
 			count[k] += 1;
 		}
-		for(jprime = 0; jprime < size; ++jprime)
+		for (jprime = 0; jprime < size; ++jprime)
 			array[jprime] = tmp[jprime];
 		print_array(array, size);
 		divisor *= 10;
