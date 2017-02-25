@@ -27,7 +27,7 @@ char _suit(kind_t kind)
  * print_deck - print a deck of cards
  * @deck: deck of card as a doubly linked list of card_t type
  */
-void print_deck(deck_node_t *deck)
+void print_deck(const deck_node_t *deck)
 {
 	int i;
 
