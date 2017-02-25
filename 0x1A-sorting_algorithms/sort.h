@@ -55,4 +55,7 @@ void heap_sort(int *array, size_t size);
 /*105-radix_sort*/
 void radix_sort(int *array, size_t size);
 
+/*106-bitonic_sort*/
+void bitonic_sort(int *array, size_t size);
+
 #endif
