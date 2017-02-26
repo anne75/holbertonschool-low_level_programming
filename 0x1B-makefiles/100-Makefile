@@ -1,0 +1,42 @@
+# Sixth makefile
+# Do not recompile if a source file has not been updated
+# Delete emacs ~, object, and executable file
+# Use built in variables
+
+# compiler to use
+CC = gcc-4.8
+
+# list of flags
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# list of source files
+SRC = main.c holberton.c
+
+# automatically generated list of object files
+OBJ = $(SRC:.c=.o)
+
+# name of executable
+NAME = holberton
+
+# Do not mistake rules for files
+.PHONY: clean oclean fclean all re
+
+# add dependency to all, no recompile if OBJ not changed
+# omit the flag here, and they will be used only for .o files
+# using $< in the command only selects one object file
+all: $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
+
+# delete the executable and emacs ~ files
+clean:
+	-$(RM) *~ $(NAME)
+
+# delete object files
+oclean:
+	-$(RM) $(OBJ)
+
+# both deletes
+fclean: clean oclean
+
+# force recompilation of source files
+re: oclean all
