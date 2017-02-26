@@ -1,0 +1,21 @@
+# Third makefile
+# Do not recompile if a source file has not been updated
+
+# compiler to use
+CC = gcc-4.8
+
+# list of source files
+SRC = main.c holberton.c
+
+# automatically generated list of object files
+OBJ = $(SRC:.c=.o)
+
+# name of executable
+NAME = holberton
+
+# add dependency to all, no recompile if OBJ not changed
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# add dependency to OBJ not needed !
+# $(OBJ): $(SRC)

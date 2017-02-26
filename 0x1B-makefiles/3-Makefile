@@ -1,0 +1,41 @@
+# Fourth makefile
+# Do not recompile if a source file has not been updated
+# Delete emacs ~, object, and executable file
+
+# compiler to use
+CC = gcc-4.8
+
+# list of source files
+SRC = main.c holberton.c
+
+# automatically generated list of object files
+OBJ = $(SRC:.c=.o)
+
+# name of executable
+NAME = holberton
+
+# name of program to delete files
+RM = rm
+
+# add dependency to all, no recompile if OBJ not changed
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# add dependency to OBJ not needed !, implicit rule
+# $(OBJ): $(SRC)
+
+.PHONY: clean oclean fclean
+
+# delete the executable and emacs ~ files
+clean:
+	-$(RM) -f *~ $(NAME)
+
+# delete object files
+oclean:
+	-$(RM) -f $(OBJ)
+
+# both deletes
+fclean: clean oclean
+
+# force recompilation of source files
+re: oclean all

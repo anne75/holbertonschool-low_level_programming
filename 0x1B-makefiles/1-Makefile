@@ -1,0 +1,10 @@
+# Second makefile, add variables
+
+# compiler to use
+CC = gcc-4.8
+
+# list of source files
+SRC = main.c holberton.c
+
+all:
+	$(CC) $(SRC) -o holberton
