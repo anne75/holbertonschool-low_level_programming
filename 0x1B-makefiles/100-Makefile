@@ -24,7 +24,7 @@ NAME = holberton
 # add dependency to all, no recompile if OBJ not changed
 # omit the flag here, and they will be used only for .o files
 # using $< in the command only selects one object file
-all: $(OBJ) m.h
+all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # delete the executable and emacs ~ files
