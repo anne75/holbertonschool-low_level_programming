@@ -22,8 +22,8 @@ NAME = holberton
 .PHONY: clean oclean fclean all re
 
 #depend on header file being present http://stackoverflow.com/a/2394651/7484498
-depend m.h
-include m.h
+depend: m.h
+# include m.h
 # add dependency to all, no recompile if OBJ not changed
 # omit the flag here, and they will be used only for .o files
 # using $< in the command only selects one object file
