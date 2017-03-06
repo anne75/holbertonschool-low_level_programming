@@ -6,34 +6,46 @@
  */
 int child_count(const binary_tree_t *tree)
 {
-	if (!tree)
-		return (1);
-	if ((tree->left && tree->right) || !(tree->left || tree->right))
-		return (1);
-	return (0);
+	int count;
+
+	count = 0;
+	if (tree)
+	{
+		if (tree->left)
+			++count;
+		if (tree->right)
+			++count;
+	}
+	return (count);
 }
 /**
- * binary_tree_preorder - traverse a tree using pre-order
+ * binary_tree_check - checks if tree is full
  * @tree: root of binary tree
  * @func: function to apply to each node
- * pre order traversal is visiting the node, then its left subtree
- * then its right subtree
+ * Return: 1 if full, 0 otherwise
  */
 int binary_tree_check(const binary_tree_t *tree,
 			  int (*func)(const binary_tree_t *node))
 {
+	int i;
+
 	if (tree)
-		printf("Value of tree: %d\n Value of func: %d\n", tree->n, func(tree));
-	if (tree && func(tree))
 	{
-		if(!(tree->left || tree->right))
-		   return (1);
+		i = func(tree);
+		if (i == 0)
+			return (1);
+		if (i == 1)
+			return (0);
 		return (binary_tree_check(tree->left, func) &&
 			binary_tree_check(tree->right, func));
 	}
-	printf("return 0 in binary_tree_check triggered\n");
 	return (0);
 }
+/**
+ * binary_tree_is_full- function wrapper for binary_tree_check
+ * @tree: ptr to node
+ * Return: binary_tree_check result
+ */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
 	return (binary_tree_check(tree, child_count));
