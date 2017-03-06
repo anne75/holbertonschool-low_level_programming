@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 
-#define MAX((X), (Y)) (((X) >= (Y)) ? (X) : (Y))
+#define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
 
 
 /**
