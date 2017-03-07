@@ -1,6 +1,40 @@
 #include "binary_trees.h"
 #define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
 /**
+ * exponent - simple exponent helper function
+ * @base: base of number
+ * @exponent: power that the base will be raised to
+ * Return: base to the exponent
+ */
+size_t exponent(size_t base, size_t power)
+{
+	size_t result;
+
+	result = 1;
+	while (power > 0)
+	{
+		result *= base;
+		--power;
+	}
+	return (result);
+}
+/**
+ * binary_tree_height - measure the height of a binary tree
+ * @tree: root of binary tree
+ * Return: maximal number of edges between the root and a leaf node
+ */
+size_t binary_tree_height(const binary_tree_t *tree)
+{
+	size_t count;
+
+	count = 0;
+	if (tree && (tree->left || tree->right))
+		count = 1 + MAX(binary_tree_height(tree->left),
+				binary_tree_height(tree->right));
+
+	return (count);
+}
+/**
  * binary_tree_size - measure the size of a binary tree
  * @tree: root of the tree
  * Return: number of nodes in the tree
@@ -17,40 +51,6 @@ size_t binary_tree_size(const binary_tree_t *tree)
 	return (count);
 }
 /**
- * binary_tree_is_leaf - check if a node is a leaf
- * @node: a binary tree node
- * Return: 1 for True, 0 for False
- */
-int binary_tree_is_leaf(const binary_tree_t *node)
-{
-	if (!node)
-		return (0);
-	if (node->left || node->right)
-		return (0);
-	return (1);
-}
-/**
- * binary_tree_leaves - counts leaves in a binary-tree
- * @tree: pointer to root of binary tree
- * Return: leaf count
- */
-size_t binary_tree_leaves(const binary_tree_t *tree)
-{
-	size_t count;
-
-	count = 0;
-	if (binary_tree_is_leaf(tree))
-	{
-		count = 1;
-	}
-	else if (tree)
-	{
-		count = binary_tree_leaves(tree->right)
-			+ binary_tree_leaves(tree->left);
-	}
-	return (count);
-}
-/**
  * binary_tree_is_perfect - "perfect" basically means full and symmetric
  * and the nodecount of each level of the tree will be a power of 2
  * we compare our total nodes to the nodecount of a perfect tree of that height
@@ -59,7 +59,13 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	if ((2 * binary_tree_leaves(tree)) - 1 == binary_tree_size(tree))
-		    return (1);
+	size_t sum, i, j;
+
+	j = binary_tree_height(tree) + 1;
+	sum = 0;
+	for (i = 0; i < j; i++)
+		sum += exponent(2, i);
+	if (sum == binary_tree_size(tree))
+		return (1);
 	return (0);
 }
