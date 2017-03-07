@@ -3,7 +3,7 @@
 /**
  * exponent - simple exponent helper function
  * @base: base of number
- * @exponent: power that the base will be raised to
+ * @power: power that the base will be raised to
  * Return: base to the exponent
  */
 size_t exponent(size_t base, size_t power)
