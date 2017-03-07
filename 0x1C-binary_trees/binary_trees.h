@@ -98,5 +98,15 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /*question 19 */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 
-#endif
+/*question 20*/
+typedef struct queue_s
+{
+        int n;
+        struct queue_s *last;
+        struct queue_s *next;
+	struct queue_s *rear;
+	struct queue_s *head;
+} stack_t;
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
+#endif
