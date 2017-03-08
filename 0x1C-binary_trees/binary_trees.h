@@ -115,7 +115,11 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /*question 19 */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 
-/*question 20*/
+/*question 20 or 101*/
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+
+/*question 21 or 102*/
+int binary_tree_is_complete(const binary_tree_t *tree);
+
 
 #endif
