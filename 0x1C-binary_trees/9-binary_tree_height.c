@@ -1,7 +1,5 @@
 #include "binary_trees.h"
 
-#define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
-
 /**
  * binary_tree_height - measure the height of a binary tree
  * @tree: root of binary tree
@@ -9,12 +7,9 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t count;
-
-	count = 0;
 	if (tree && (tree->left || tree->right))
-		count = 1 + MAX(binary_tree_height(tree->left),
-				binary_tree_height(tree->right));
+		return (1 + MAX(binary_tree_height(tree->left),
+				binary_tree_height(tree->right)));
 
-	return (count);
+	return (0);
 }

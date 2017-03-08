@@ -5,7 +5,10 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-/*data types, structs given to perform the tasks*/
+/* macros */
+#define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
+
+/* data types, structs given to perform the tasks */
 
 /*for the binary tree*/
 /**
@@ -34,6 +37,20 @@ typedef struct binary_tree_s avl_t;
 
 /*for the max binary heap*/
 typedef struct binary_tree_s heap_t;
+
+/*struct for breadth first traversal*/
+/**
+ * struct queue_s - struct for a tree linked list
+ * @node: a binary_tree_t *
+ * @next: pointer to the next value
+ */
+typedef struct queue_s
+{
+	binary_tree_t *node;
+	struct tree_queue_s *next;
+} queue_t;
+
+
 
 /*for printing purposes*/
 void binary_tree_print(const binary_tree_t *root);
@@ -99,14 +116,6 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 
 /*question 20*/
-typedef struct queue_s
-{
-        int n;
-        struct queue_s *last;
-        struct queue_s *next;
-	struct queue_s *rear;
-	struct queue_s *head;
-} stack_t;
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 #endif
