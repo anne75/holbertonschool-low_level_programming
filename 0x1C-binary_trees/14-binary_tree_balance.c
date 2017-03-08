@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-#define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
+
 
 /**
  * binary_tree_h - measure the height of a binary tree by nodecount

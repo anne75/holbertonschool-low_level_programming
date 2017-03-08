@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-#define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
+
 /**
  * exponent - simple exponent helper function
  * @base: base of number

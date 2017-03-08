@@ -47,7 +47,7 @@ typedef struct binary_tree_s heap_t;
 typedef struct queue_s
 {
 	binary_tree_t *node;
-	struct tree_queue_s *next;
+	struct queue_s *next;
 } queue_t;
 
 
