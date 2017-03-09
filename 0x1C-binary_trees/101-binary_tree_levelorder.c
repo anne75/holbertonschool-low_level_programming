@@ -19,7 +19,15 @@ queue_t *enqueue(queue_t **head, const binary_tree_t *node)
 
 	new = malloc(sizeof(queue_t));
 	if (!new)
+	{
+		while (*head)
+		{
+			tmp = *head;
+			*head = (*head)->next;
+			free(tmp);
+		}
 		return (NULL);
+	}
 
 	new->node = (binary_tree_t *)node;
 	new->next = NULL;
