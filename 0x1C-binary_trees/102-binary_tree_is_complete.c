@@ -1,50 +1,105 @@
 #include "binary_trees.h"
 
-/* a complete tree of size h is a full tree at size h -1
- * idea is to verify that
- * I don't think left and right recursion could work bc of
- *       _____ #____
- *  ___#         __#__
- * #             #    #
- *left and right are complete but not the whole tree
- *
- * algo is
- * - traverse tree by level
- * - keep count of nodes and when we stop having a continuum of children
- * - problem: when do we know we start a new level ?
- */
-
 
 /**
- * binary_tree_height - measure the height of a binary tree
- * @tree: root of binary tree
- * Return: maximal number of edges between the root and a leaf node
+ * enqueue - insert a node at the end
+ * @head: head of queue
+ * @node: node to insert
+ * Return: pointer to newly created list element or NULL on failure
  */
-size_t binary_tree_height(const binary_tree_t *tree)
+queue_t *enqueue(queue_t **head, const binary_tree_t *node)
 {
-	if (tree && (tree->left || tree->right))
-		return (1 + MAX(binary_tree_height(tree->left),
-				binary_tree_height(tree->right)));
+	queue_t *new, *tmp;
 
-	return (0);
+	if (!node)
+		return (NULL); /*do not insert a null value*/
+
+	if (!head)
+		return (NULL); /*edge case we should not meet here*/
+
+	new = malloc(sizeof(queue_t));
+	if (!new)
+	{
+		while (*head)
+		{
+			tmp = *head;
+			*head = (*head)->next;
+			free(tmp);
+		}
+		return (NULL);
+	}
+
+	new->node = (binary_tree_t *)node;
+	new->next = NULL;
+	if (!*head)
+	{
+		*head = new;
+	}
+	else
+	{
+		tmp = *head;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
+	return (new);
 }
 
 /**
- * binary_tree_is_complete - check if binary tree is complete
- * @tree: root of binary tree
- * a tree is comple when all its levels save the last are full
- * and on the last level all leaves nodes are as left as possible
- * Return: 1 id True, 0 if False
+ * dequeue - return a node from the beginning
+ * @head: head of queue
+ * Return: a pointer to a binary tree node
+ */
+binary_tree_t *dequeue(queue_t **head)
+{
+	queue_t *tmp;
+	binary_tree_t *node;
+
+	if (!head || !*head)
+		return (NULL);
+
+	tmp = *head;
+	*head = tmp->next;
+	node = tmp->node;
+	free(tmp);
+
+	return (node);
+}
+
+/**
+ * binary_tree_is_complete - check if a tree is complete
+ * @tree: ptr to node of binary tree
+ * Return: 1 if tree is complete, 0 otherwise
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	size_t h, count, i;
-	binary_tree_t *tmp; /*workaround for const*/
+	queue_t *queue;
+	binary_tree_t *temp;
+	int no_more_kids;
 
 	if (!tree)
 		return (0);
-	h = binary_tree_height(tree);
-	if (h == 0)
-		return (1);
 
+	queue = NULL;
+	enqueue(&queue, tree);
+	no_more_kids = 0;
+	while (queue)
+	{
+		temp = dequeue(&queue);
+		if (temp->left)
+		{
+			if (no_more_kids)
+				return (0);
+			else if (!(temp->right))
+				no_more_kids = 1;
+		}
+		else
+		{
+			if (temp->right)
+				return (0);
+		}
+		enqueue(&queue, temp->left);
+		enqueue(&queue, temp->right);
+	}
+	return (1);
 }
