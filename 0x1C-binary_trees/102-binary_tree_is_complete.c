@@ -1,5 +1,25 @@
 #include "binary_trees.h"
 
+/**
+ * free_queue - frees a queue!
+ * @head: ptr to head of queue
+ *
+ */
+void free_queue(queue_t **head)
+{
+	queue_t *temp1, *temp2;
+
+	if (!head || !(*head))
+		return;
+	temp1 = *head;
+	while (temp1 != NULL)
+	{
+		temp2 = temp1;
+		temp1 = temp1->next;
+		free(temp2);
+	}
+	*head = NULL;
+}
 
 /**
  * enqueue - insert a node at the end
@@ -89,17 +109,24 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		if (temp->left)
 		{
 			if (no_more_kids)
+			{
+				free_queue(&queue);
 				return (0);
+			}
 			else if (!(temp->right))
 				no_more_kids = 1;
 		}
 		else
 		{
 			if (temp->right)
+			{
+				free_queue(&queue);
 				return (0);
+			}
 		}
 		enqueue(&queue, temp->left);
 		enqueue(&queue, temp->right);
 	}
+	free_queue(&queue);
 	return (1);
 }
