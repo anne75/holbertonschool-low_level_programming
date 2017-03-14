@@ -132,7 +132,7 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 /*question 24, file 105*/
 int binary_tree_is_bst(const binary_tree_t *tree);
 
-/*question 25, file 110 */
-int binary_tree_is_bst(const binary_tree_t *tree);
+/*question 25, file 111 */
+bst_t *bst_insert(bst_t **tree, int value);
 
 #endif
