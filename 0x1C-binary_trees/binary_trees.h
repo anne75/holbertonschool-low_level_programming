@@ -128,11 +128,10 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 
-/*question 23 or 104*/
-binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
-
-/*question 24 or 105*/
+/*question 24, file 105*/
 int binary_tree_is_bst(const binary_tree_t *tree);
 
+/*question 25, file 110 */
+int binary_tree_is_bst(const binary_tree_t *tree);
 
 #endif
