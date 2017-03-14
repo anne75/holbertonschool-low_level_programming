@@ -52,7 +52,6 @@ bst_t *bst_remove(bst_t *root, int value)
 
 	if (!root)
 		return (NULL);
-
 	tmp = root;
 	while (tmp)
 	{
@@ -65,30 +64,28 @@ bst_t *bst_remove(bst_t *root, int value)
 	}
 	if (!tmp)
 		return (root);
-
-	if (!(tmp->right) && !(tmp->left))
+	if ((tmp->right) && (tmp->left))
 	{
-		set_parent(tmp, NULL);
-		free(tmp);
-		tmp = NULL;
-	}
-	else if (!(tmp->right))
-	{
-		(tmp->left)->parent = tmp->parent;
-		set_parent(tmp, tmp->left);
-		free(tmp);
-		tmp = NULL;
-	}
-	else if (!(tmp->left))
-	{
-		(tmp->right)->parent = tmp->parent;
-		set_parent(tmp, tmp->right);
-		free(tmp);
-		tmp = NULL;
+		tmp->n = delete_min(tmp->right);
 	}
 	else
 	{
-		tmp->n = delete_min(tmp->right);
+		if (!(tmp->right) && !(tmp->left))
+		{
+			set_parent(tmp, NULL);
+		}
+		else if (!(tmp->right))
+		{
+			(tmp->left)->parent = tmp->parent;
+			set_parent(tmp, tmp->left);
+		}
+		else
+		{
+			(tmp->right)->parent = tmp->parent;
+			set_parent(tmp, tmp->right);
+		}
+		free(tmp);
+		tmp = NULL;
 	}
 	return (root);
 }
