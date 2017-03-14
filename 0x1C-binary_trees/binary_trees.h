@@ -115,12 +115,18 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /*question 19 or 100*/
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 
-/*question 20 or 101*/
+/*question 20, file 101*/
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
-/*question 21 or 102*/
+/*question 21, file 102*/
 int binary_tree_is_complete(const binary_tree_t *tree);
 
+/*question 22, file 103 */
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
+
+/* question 23, file 104 */
+
+binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 
 /*question 23 or 104*/
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
