@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <limits.h>
 
 /* macros */
 #define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
