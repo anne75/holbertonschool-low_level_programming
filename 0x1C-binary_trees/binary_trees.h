@@ -138,4 +138,7 @@ bst_t *bst_insert(bst_t **tree, int value);
 /*question 26, file 112 */
 bst_t *array_to_bst(int *array, size_t size);
 
+/*question 27, file 113 */
+bst_t *bst_search(const bst_t *tree, int value);
+
 #endif
