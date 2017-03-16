@@ -149,4 +149,8 @@ bst_t *bst_remove(bst_t *root, int value);
 /*question 31 or 121 */
 avl_t *avl_insert(avl_t **tree, int value);
 
+/*question 32 or 122 */
+avl_t *array_to_avl(int *array, size_t size);
+
+
 #endif

@@ -49,7 +49,7 @@ avl_t *re_balance(avl_t *tree)
 	if (!tree)
 		return NULL;
 	balance = binary_tree_balance((const binary_tree_t *)tree);
-/*	printf("DEBUG balance %d and node value %d\n", balance, tree->n);*/
+	printf("DEBUG balance %d and node value %d\n", balance, tree->n);
 	if (balance > 1) /*left leaning tree*/
 	{
 		if (binary_tree_balance((const avl_t*)tree->left) <= -1)
@@ -59,8 +59,8 @@ avl_t *re_balance(avl_t *tree)
 	else if (balance < -1) /*right leaning tree*/
 	{
 		if (binary_tree_balance((const avl_t*)tree->right) >= 1)
-			tree = binary_tree_rotate_right(tree->right);
-		tree = binary_tree_rotate_left((binary_tree_t *)tree);
+			tree->right = binary_tree_rotate_right(tree->right);
+		tree = binary_tree_rotate_left(tree);
 	}
 /*	printf("return value of re_balance %d\n", tree->n);*/
 	return (tree);
