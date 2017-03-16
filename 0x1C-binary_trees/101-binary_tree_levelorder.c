@@ -83,7 +83,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	queue = NULL;
 	enqueue(&queue, tree);
 
-	while(queue)
+	while (queue)
 	{
 		temp = dequeue(&queue);
 		func(temp->n);

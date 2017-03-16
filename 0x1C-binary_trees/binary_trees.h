@@ -144,4 +144,9 @@ bst_t *bst_search(const bst_t *tree, int value);
 /*question 28, file 114 */
 bst_t *bst_remove(bst_t *root, int value);
 
+
+
+/*question 31 or 121 */
+avl_t *avl_insert(avl_t **tree, int value);
+
 #endif
