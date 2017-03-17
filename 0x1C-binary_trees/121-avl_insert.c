@@ -47,22 +47,20 @@ avl_t *re_balance(avl_t *tree)
 	int balance;
 
 	if (!tree)
-		return NULL;
+		return (NULL);
 	balance = binary_tree_balance((const binary_tree_t *)tree);
-	printf("DEBUG balance %d and node value %d\n", balance, tree->n);
 	if (balance > 1) /*left leaning tree*/
 	{
-		if (binary_tree_balance((const avl_t*)tree->left) <= -1)
+		if (binary_tree_balance((const avl_t *)tree->left) <= -1)
 			tree->left = binary_tree_rotate_left(tree->left);
 		tree = binary_tree_rotate_right(tree);
 	}
 	else if (balance < -1) /*right leaning tree*/
 	{
-		if (binary_tree_balance((const avl_t*)tree->right) >= 1)
+		if (binary_tree_balance((const avl_t *)tree->right) >= 1)
 			tree->right = binary_tree_rotate_right(tree->right);
 		tree = binary_tree_rotate_left(tree);
 	}
-/*	printf("return value of re_balance %d\n", tree->n);*/
 	return (tree);
 }
 
@@ -75,23 +73,19 @@ avl_t *re_balance(avl_t *tree)
 avl_t *avl_insert(avl_t **tree, int value)
 {
 	avl_t *new, *tmp;
-	int count;
 
 	new = simple_insert(tree, value);
 	if (!new)
 		return (NULL);
 
 	tmp = new;
-	count = 0;
-	while (new->parent && count < 8)
+	while (new->parent)
 	{
 		new = re_balance(new);
-/*		printf("return from balance is node %d with parent %d\n", new->n, new->parent->n);*/
 		new = new->parent;
-		++count;
 	}
 /* at this point new is pointing to the root */
 	*tree = re_balance(new);
 
-	return(tmp);
+	return (tmp);
 }
