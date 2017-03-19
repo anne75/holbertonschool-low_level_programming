@@ -2,10 +2,10 @@
 
 
 /**
- * binary_tree_delete - delete a binary tree
+ * tree_delete - delete a binary tree
  * @tree: pointer to binary tree
  */
-void binary_tree_delete(binary_tree_t *tree)
+void tree_delete(binary_tree_t *tree)
 {
 	if (!tree)
 		return;
@@ -32,12 +32,11 @@ avl_t *array_to_avl(int *array, size_t size)
 	tree = NULL;
 	for (i = 0; i < size; ++i)
 	{
-		printf("step %lu insert %d\n", i, array[i]);
+/*		printf("step %lu insert %d\n", i, array[i]);*/
 		tmp = avl_insert(&tree, array[i]);
-		binary_tree_print(tree);
 		if (tmp == NULL)
 		{
-			binary_tree_delete(tree);
+			tree_delete(tree);
 			return (NULL);
 		}
 	}

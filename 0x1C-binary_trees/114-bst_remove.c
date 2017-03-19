@@ -31,9 +31,18 @@ int delete_min(bst_t *tree)
 		tree = tree->left;
 	value = tree->n;
 	if (tree->right)
-		(tree->right)->parent = tree->parent;
-	if (tree->parent)
-		(tree->parent)->left = tree->right;
+        {
+                (tree->right)->parent = tree->parent;
+                if (tree->parent)
+                        (tree->parent)->left = tree->right;
+        }
+        else
+	{
+                if ((tree->parent)->left == tree)
+                        (tree->parent)->left = NULL;
+                else
+                        (tree->parent)->right = NULL;
+        }
 	free(tree);
 	tree = NULL;
 	return (value);

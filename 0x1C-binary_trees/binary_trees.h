@@ -152,5 +152,7 @@ avl_t *avl_insert(avl_t **tree, int value);
 /*question 32 or 122 */
 avl_t *array_to_avl(int *array, size_t size);
 
+/*question 33 or 123 */
+avl_t *avl_remove(avl_t *root, int value);
 
 #endif
