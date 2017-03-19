@@ -125,7 +125,7 @@ avl_t *re2_balance(avl_t *tree)
 
 /**
  * avl_remove - insert a new value in an AVL node
- * @tree: pointer to the root of the tree
+ * @root: pointer to the root of the tree
  * @value: value to insert
  * Return: pointer to the created node or NULL
  */
