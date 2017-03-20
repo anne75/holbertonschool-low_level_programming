@@ -158,4 +158,7 @@ avl_t *avl_remove(avl_t *root, int value);
 /*question 34, file 124 */
 avl_t *sorted_array_to_avl(int *array, size_t size);
 
+/*question 36, file 130 */
+int binary_tree_is_heap(const binary_tree_t *tree);
+
 #endif
