@@ -166,4 +166,7 @@ int binary_tree_is_heap(const binary_tree_t *tree);
 /*question 37, file 131 */
 heap_t *heap_insert(heap_t **root, int value);
 
+/*question 38, file 132 */
+heap_t *array_to_heap(int *array, size_t size);
+
 #endif
