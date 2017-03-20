@@ -8,7 +8,7 @@ void heapify_downward(heap_t *tree)
 {
 	int temp;
 
-	if (!(tree->right || tree->left))
+	if (!tree || !(tree->right || tree->left))
 		return;
 	else if (!(tree->right))
 	{
