@@ -1,4 +1,4 @@
-include "binary_trees.h"
+#include "binary_trees.h"
 
 /**
  * set_parent - set the parent of the node to remove right
