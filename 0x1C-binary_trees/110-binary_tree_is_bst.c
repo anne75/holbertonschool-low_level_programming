@@ -25,5 +25,7 @@ int bst_check(const binary_tree_t *tree, const binary_tree_t *min,
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
+	if (!tree)
+		return (0);
 	return (bst_check(tree, NULL, NULL));
 }
