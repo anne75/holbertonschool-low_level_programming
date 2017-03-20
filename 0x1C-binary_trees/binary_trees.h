@@ -146,13 +146,16 @@ bst_t *bst_remove(bst_t *root, int value);
 
 
 
-/*question 31 or 121 */
+/*question 31, file 121 */
 avl_t *avl_insert(avl_t **tree, int value);
 
-/*question 32 or 122 */
+/*question 32, file 122 */
 avl_t *array_to_avl(int *array, size_t size);
 
-/*question 33 or 123 */
+/*question 33, file 123 */
 avl_t *avl_remove(avl_t *root, int value);
+
+/*question 34, file 124 */
+avl_t *sorted_array_to_avl(int *array, size_t size);
 
 #endif
