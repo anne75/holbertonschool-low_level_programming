@@ -8,6 +8,7 @@
 
 /* macros */
 #define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
+#define ABS(X) ((X) < 0 ? (-X) : (X))
 
 /* data types, structs given to perform the tasks */
 
@@ -144,7 +145,8 @@ bst_t *bst_search(const bst_t *tree, int value);
 /*question 28, file 114 */
 bst_t *bst_remove(bst_t *root, int value);
 
-
+/*question 30, file 120 */
+int binary_tree_is_avl(const binary_tree_t *tree);
 
 /*question 31, file 121 */
 avl_t *avl_insert(avl_t **tree, int value);
