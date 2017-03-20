@@ -8,6 +8,7 @@
 
 /* macros */
 #define MAX(X, Y) ((X) >= (Y) ? (X) : (Y))
+#define ABS(X) ((X) < 0 ? (-(X)) : (X))
 
 /* data types, structs given to perform the tasks */
 
@@ -51,7 +52,9 @@ typedef struct queue_s
 	struct queue_s *next;
 } queue_t;
 
-
+/* basic functions for queue */
+queue_t *enqueue(queue_t **head, const binary_tree_t *node);
+binary_tree_t *dequeue(queue_t **head);
 
 /*for printing purposes*/
 void binary_tree_print(const binary_tree_t *root);
@@ -144,7 +147,8 @@ bst_t *bst_search(const bst_t *tree, int value);
 /*question 28, file 114 */
 bst_t *bst_remove(bst_t *root, int value);
 
-
+/*question 30, file 120 */
+int binary_tree_is_avl(const binary_tree_t *tree);
 
 /*question 31, file 121 */
 avl_t *avl_insert(avl_t **tree, int value);
@@ -160,5 +164,17 @@ avl_t *sorted_array_to_avl(int *array, size_t size);
 
 /*question 36, file 130 */
 int binary_tree_is_heap(const binary_tree_t *tree);
+
+/*question 37, file 131 */
+heap_t *heap_insert(heap_t **root, int value);
+
+/*question 38, file 132 */
+heap_t *array_to_heap(int *array, size_t size);
+
+/*question 39, file 133 */
+int heap_extract(heap_t **root);
+
+/*question 40, file 134 */
+int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 #endif
