@@ -1,16 +1,16 @@
 #include "binary_trees.h"
 /**
- * binary_tree_delete - delete a binary tree
+ * tree_delete - delete a binary tree
  * @tree: pointer to binary tree
  */
-void binary_tree_delete(binary_tree_t *tree)
+void tree_delete(binary_tree_t *tree)
 {
 	if (!tree)
 		return;
 	if (tree->left)
-		binary_tree_delete(tree->left);
+		tree_delete(tree->left);
 	if (tree->right)
-		binary_tree_delete(tree->right);
+		tree_delete(tree->right);
 	free(tree);
 }
 /**
@@ -32,7 +32,7 @@ heap_t *array_to_heap(int *array, size_t size)
 		temp = heap_insert(&root, array[i]);
 		if (temp == NULL)
 		{
-			binary_tree_delete(root);
+			tree_delete(root);
 			return (NULL);
 		}
 	}

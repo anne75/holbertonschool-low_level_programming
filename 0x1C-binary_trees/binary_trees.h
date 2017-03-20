@@ -52,7 +52,9 @@ typedef struct queue_s
 	struct queue_s *next;
 } queue_t;
 
-
+/* basic functions for queue */
+queue_t *enqueue(queue_t **head, const binary_tree_t *node);
+binary_tree_t *dequeue(queue_t **head);
 
 /*for printing purposes*/
 void binary_tree_print(const binary_tree_t *root);
@@ -168,5 +170,8 @@ heap_t *heap_insert(heap_t **root, int value);
 
 /*question 38, file 132 */
 heap_t *array_to_heap(int *array, size_t size);
+
+/*question 39, file 133 */
+int heap_extract(heap_t **root);
 
 #endif
