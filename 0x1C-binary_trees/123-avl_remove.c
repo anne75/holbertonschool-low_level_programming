@@ -30,12 +30,8 @@ bst_t *delete_min(bst_t *tree)
 	while (tree->left)
 		tree = tree->left;
 	if (tree->right)
-	{
 		(tree->right)->parent = tree->parent;
-		if (tree->parent)
-			(tree->parent)->left = tree->right;
-	}
-	else
+	if (tree->parent)
 	{
 		if ((tree->parent)->left == tree)
 			(tree->parent)->left = NULL;
