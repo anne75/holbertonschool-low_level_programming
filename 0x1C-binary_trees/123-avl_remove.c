@@ -128,21 +128,18 @@ avl_t *re2_balance(avl_t *tree)
 avl_t *avl_remove(avl_t *root, int value)
 {
 	avl_t *remove, *tmp;
-	int count;
 
 	remove = simple_remove(root, value);
 	if (!remove)
 		return (root);
 	tmp = remove->parent;
 	free(remove);
-	count = 0;
 	if (tmp)
 	{
-		while (tmp->parent && count < 8)
+		while (tmp->parent)
 		{
 			tmp = re2_balance(tmp);
 			tmp = tmp->parent;
-			++count;
 		}
 /* at this point tmp is pointing to the root */
 		root = re2_balance(tmp);

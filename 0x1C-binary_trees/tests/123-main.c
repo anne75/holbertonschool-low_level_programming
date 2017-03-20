@@ -24,22 +24,22 @@ int main(void)
 	tree = avl_remove(tree, 47);
 	printf("Removed 47...\n");
 	binary_tree_print(tree);
-	printf("check %i\n", (bst_search(tree, 22))->parent->n);
+/*	printf("check %i\n", (bst_search(tree, 22))->parent->n);*/
 
 	tree = avl_remove(tree, 79);
 	printf("Removed 79...\n");
 	binary_tree_print(tree);
-	printf("check %i\n",(bst_search(tree, 22))->parent->n);
+/*	printf("check %i\n",(bst_search(tree, 22))->parent->n);*/
 
 	tree = avl_remove(tree, 32);
 	printf("Removed 32...\n");
 	binary_tree_print(tree);
-	printf("check %i\n", (bst_search(tree, 22))->parent->n);
+/*	printf("check %i\n", (bst_search(tree, 22))->parent->n);*/
 
 	tree = avl_remove(tree, 34);
 	printf("Removed 34...\n");
 	binary_tree_print(tree);
-	printf("check %i\n", (bst_search(tree, 22))->parent->n);
+/*	printf("check %i\n", (bst_search(tree, 22))->parent->n);*/
 
 	tree = avl_remove(tree, 22);
 	printf("Removed 22...\n");

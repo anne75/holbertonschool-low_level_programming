@@ -17,12 +17,12 @@ avl_t *sata(int *array, size_t lo, size_t hi, avl_t *parent)
 		return (NULL);
 
 	mid = (lo + hi - 1) / 2;
-	printf("creating node for array[%lu] = %i\n", mid, array[mid]);
+/*	printf("creating node for array[%lu] = %i\n", mid, array[mid]);*/
 	node = binary_tree_node(parent, array[mid]);
 	if (!node)
 		return (NULL);
 	node->left = sata(array, lo, mid, node);
-	printf("going right for node %i\n", node->n);
+/*	printf("going right for node %i\n", node->n);*/
 	node->right = sata(array, mid + 1, hi, node);
 	return (node);
 }
