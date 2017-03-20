@@ -1,4 +1,4 @@
-#include "binary_trees.h"
+include "binary_trees.h"
 
 /**
  * set_parent - set the parent of the node to remove right
@@ -7,13 +7,15 @@
  */
 void set_parent(bst_t *node, bst_t *swap)
 {
-		if (node->parent)
-		{
-			if ((node->parent)->left == node)
-				(node->parent)->left = swap;
-			else
-				(node->parent)->right = swap;
-		}
+	if (!node)
+		return;
+	if (node->parent)
+	{
+		if ((node->parent)->left == node)
+			(node->parent)->left = swap;
+		else
+			(node->parent)->right = swap;
+	}
 }
 
 /**
@@ -24,7 +26,6 @@ void set_parent(bst_t *node, bst_t *swap)
 bst_t *delete_min(bst_t *tree)
 {
 
-	printf("enter delete_min\n");
 	if (!tree)
 		return (NULL);
 	while (tree->left)
