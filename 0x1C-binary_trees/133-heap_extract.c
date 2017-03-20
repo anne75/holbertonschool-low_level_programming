@@ -63,7 +63,6 @@ int heap_extract(heap_t **root)
 		enqueue(&queue, temp->left);
 		enqueue(&queue, temp->right);
 	}
-	printf("temp is %d\n", temp->n);
 	if (temp->parent)
 	{
 		if (temp->parent->left == temp)
@@ -79,8 +78,15 @@ int heap_extract(heap_t **root)
 	if (temp->left)
 		temp->left->parent = temp;
 	value = (*root)->n;
-	free(*root);
-	*root = temp;
-	heapify_downward(temp);
+	if (*root == temp)
+	{
+		free(*root); *root = NULL;
+	}
+	else
+	{
+		free(*root);
+		*root = temp;
+		heapify_downward(temp);
+	}
 	return (value);
 }

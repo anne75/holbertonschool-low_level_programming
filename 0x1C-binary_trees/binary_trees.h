@@ -174,4 +174,7 @@ heap_t *array_to_heap(int *array, size_t size);
 /*question 39, file 133 */
 int heap_extract(heap_t **root);
 
+/*question 40, file 134 */
+int *heap_to_sorted_array(heap_t *heap, size_t *size);
+
 #endif
