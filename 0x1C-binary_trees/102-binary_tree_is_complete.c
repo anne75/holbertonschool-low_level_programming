@@ -113,7 +113,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 				free_queue(&queue);
 				return (0);
 			}
-			else if (!(temp->right))
+			if (!(temp->right))
 				no_more_kids = 1;
 		}
 		else
