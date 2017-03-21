@@ -53,8 +53,8 @@ typedef struct queue_s
 } queue_t;
 
 /* basic functions for queue */
-queue_t *enqueue(queue_t **head, const binary_tree_t *node);
-binary_tree_t *dequeue(queue_t **head);
+/*queue_t *enqueue(queue_t **head, const binary_tree_t *node);
+  binary_tree_t *dequeue(queue_t **head);*/
 
 /*for printing purposes*/
 void binary_tree_print(const binary_tree_t *root);

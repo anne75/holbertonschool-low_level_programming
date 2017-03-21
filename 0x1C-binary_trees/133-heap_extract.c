@@ -62,7 +62,8 @@ binary_tree_t *dequeue2(queue_t **head)
 	free(tmp);
 
 	return (node);
-}/**
+}
+/**
  * heapify_downward - basically performs a binary search downward
  * and swaps when parent < child
  * @tree: ptr to root
