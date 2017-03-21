@@ -127,6 +127,5 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		enqueue(&queue, temp->left);
 		enqueue(&queue, temp->right);
 	}
-	free_queue(&queue);
 	return (1);
 }
