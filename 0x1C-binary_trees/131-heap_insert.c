@@ -88,11 +88,14 @@ void free_queue(queue_t **head)
  * travels up tree from parent to parent
  * swaps when root > parent
  * @root: ptr to new node from heap_insert
+ * Return: a pointer to the final node bearing the value inserted
  */
-void heapify_tree(heap_t *root)
+heap_t *heapify_tree(heap_t *root)
 {
 	int temp;
+	heap_t *to_return;
 
+	to_return = root;
 	while (root->parent)
 	{
 		if (root->parent->n < root->n)
@@ -100,9 +103,11 @@ void heapify_tree(heap_t *root)
 			temp = root->n;
 			root->n = root->parent->n;
 			root->parent->n = temp;
+			to_return = root->parent;
 		}
 		root = root->parent;
 	}
+	return (to_return);
 }
 /**
  * heap_insert - inserts into a heap
@@ -118,7 +123,7 @@ heap_t *heap_insert(heap_t **root, int value)
 {
 	queue_t *queue;
 	binary_tree_t *temp;
-	heap_t *new;
+	heap_t *new, *to_return;
 
 	if (!root)
 		return (NULL);
@@ -148,6 +153,6 @@ heap_t *heap_insert(heap_t **root, int value)
 		temp->left = new;
 	else
 		temp->right = new;
-	heapify_tree(new);
-	return (new);
+	to_return = heapify_tree(new);
+	return (to_return);
 }
