@@ -1,8 +1,7 @@
-# Sorting Algorithms in C
+# Holberton School Low Level Programming
 
-Too lazy to go again in the bubble file to add comments.  
-It seems like working.  
-Not sure i needs to loop to n, maybe n - 1 is enough  
-best case scenario: sorted ?  
-worst case: reverse sorted, how many times do we loop ?  
-average: ?  
+This repository contains all the projects done in C for Holberton School.  
+They can be grouped in 3 categories:  
+- Introduction to computer science.  
+- Linux and Unix System programming.
+- Algorithms and data structures.
