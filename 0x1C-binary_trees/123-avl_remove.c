@@ -35,9 +35,9 @@ bst_t *delete_min(bst_t *tree)
 	if (tree->parent)
 	{
 		if ((tree->parent)->left == tree)
-			(tree->parent)->left = NULL;
+			(tree->parent)->left = tree->right;
 		else
-			(tree->parent)->right = NULL;
+			(tree->parent)->right = tree->right;
 	}
 	return (tree);
 }
