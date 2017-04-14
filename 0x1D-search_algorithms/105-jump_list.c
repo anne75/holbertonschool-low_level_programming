@@ -46,7 +46,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	while (end->n < value && hi < size)
 	{
 /*
- * note that hi condition above requires to do down linear search
+ * note that hi condition above requires to go down linear search
  * and prevent to return here if list[size] < value
  */
 		printf("Value checked at index [%lu] = [%d]\n", i, end->n);

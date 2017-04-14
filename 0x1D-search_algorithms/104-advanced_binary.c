@@ -29,22 +29,21 @@ void print_array(int *array, size_t lo, size_t hi)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t lo, hi, middle, i;
+	size_t lo, hi, middle;
 
 	if (!array || size <= 0)
 		return (-1);
 
 	lo = 0;
 	hi = size - 1;
-	i = 0;
-	while (lo <= hi && i++ < 5)
+	while (lo <= hi)
 	{
 		print_array(array, lo, hi);
 		middle = lo + (hi - lo) / 2;
 		if (array[middle] < value)
 			lo = middle + 1;
 		else
-			hi = middle;
+			hi = middle - 1;
 	}
 	if (array[lo] == value)
 		return (middle);
