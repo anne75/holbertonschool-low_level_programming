@@ -2,23 +2,48 @@
 
 
 /**
- * print_array - print part of an array
+ * print_array_rec - print part of an array
  * @array: array of int
- * @lo: minimum index to print
- * @hi: maximum index to print
+ * @size: size of array
  */
-void print_array(int *array, size_t lo, size_t hi)
+void print_array_rec(int *array, size_t size)
 {
-	size_t i;
-
-	printf("Searching in array:");
-	for (i = lo; i < hi; ++i)
+	if (size > 0)
 	{
-		printf(" %d,", array[i]);
+		printf(" %d,", *array);
+		print_array_rec(array + 1, size - 1);
 	}
-	printf(" %d\n", array[i]);
+	else
+	{
+		printf(" %d\n", *array);
+	}
 }
 
+/**
+ * helper - binary recursively
+ * @array: pointer to array
+ * @lo: lower index to consider
+ * @hi: high index to consider
+ * @value: value to search
+ * Return: index of where value appears or -1
+ */
+int helper(int *array, size_t lo, size_t hi, int value)
+{
+	size_t middle;
+
+	if (lo >= hi)
+	{
+		if (array[lo] == value)
+			return (lo);
+		return (-1);
+	}
+	printf("Searching in array:");
+	print_array_rec(array + lo, hi - lo);
+	middle = lo + (hi - lo) / 2;
+	if (array[middle] < value)
+		return (helper(array, middle + 1, hi, value));
+	return (helper(array, lo, middle, value));
+}
 
 /**
  * advanced_binary - implement binary search algorithm
@@ -29,23 +54,8 @@ void print_array(int *array, size_t lo, size_t hi)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t lo, hi, middle;
-
 	if (!array || size <= 0)
 		return (-1);
 
-	lo = 0;
-	hi = size - 1;
-	while (lo <= hi)
-	{
-		print_array(array, lo, hi);
-		middle = lo + (hi - lo) / 2;
-		if (array[middle] < value)
-			lo = middle + 1;
-		else
-			hi = middle - 1;
-	}
-	if (array[lo] == value)
-		return (middle);
-	return (-1);
+	return (helper(array, 0, size - 1, value));
 }
