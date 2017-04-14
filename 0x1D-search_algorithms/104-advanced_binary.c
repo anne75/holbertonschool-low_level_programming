@@ -13,7 +13,7 @@ void print_array_rec(int *array, size_t size)
 		printf(" %d,", *array);
 		print_array_rec(array + 1, size - 1);
 	}
-	else
+	else if (size == 0)
 	{
 		printf(" %d\n", *array);
 	}
@@ -35,6 +35,8 @@ int helper(int *array, size_t lo, size_t hi, int value)
 	{
 		if (array[lo] == value)
 			return (lo);
+		printf("Searching in array:");
+		print_array_rec(array + lo, hi - lo);
 		return (-1);
 	}
 	printf("Searching in array:");
