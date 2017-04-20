@@ -42,6 +42,9 @@ int insert_sorted_node(shash_table_t *ht, shash_node_t *new)
 {
 	shash_node_t *tmp;
 
+	if (!ht || !new)
+		return (0);
+
 	if (ht->shead == NULL)
 	{
 		ht->shead = new;
@@ -85,6 +88,9 @@ int create_node(shash_table_t *ht, const char *key,
 {
 	shash_node_t *new;
 	char *s;
+
+	if (!ht || !key)
+		return (0);
 
 	new = malloc(sizeof(shash_node_t));
 	if (!new)
@@ -197,6 +203,8 @@ void shash_table_print(const shash_table_t *ht)
 	shash_node_t *node;
 	char *flag = "";
 
+	if (!ht)
+		return;
 	node = ht->shead;
 
 	putchar('{');
@@ -219,6 +227,8 @@ void shash_table_print_rev(const shash_table_t *ht)
 	shash_node_t *node;
 	char *flag = "";
 
+	if (!ht)
+		return;
 	node = ht->stail;
 
 	putchar('{');
@@ -274,6 +284,8 @@ void shash_table_delete(shash_table_t *ht)
 	unsigned long int i;
 	shash_node_t *node, *tmp;
 
+	if(!ht)
+		return;
 	for (i = 0; i < ht->size; ++i)
 	{
 		node = (ht->array)[i];
