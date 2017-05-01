@@ -36,4 +36,8 @@ int huffman_extract_and_insert(heap_t *priority_queue);
 
 /*question 8*/
 binary_tree_node_t *huffman_tree(char *data, size_t *freq, size_t size);
+
+/*question 9*/
+int huffman_codes(char *data, size_t *freq, size_t size);
+
 #endif
