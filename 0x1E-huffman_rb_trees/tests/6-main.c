@@ -17,12 +17,9 @@ int nested_print(char *buffer, void *data)
 	binary_tree_node_t *nested;
 	symbol_t *symbol;
 	int length;
-	puts("enter nested print");
 	nested = (binary_tree_node_t *)data;
 	symbol = (symbol_t *)nested->data;
-	printf("in nested print data %c\n", symbol->data);
 	length = sprintf(buffer, "(%c/%lu)", symbol->data, symbol->freq);
-	puts("exit nested print");
 	return (length);
 }
 
@@ -35,10 +32,10 @@ int main(void)
 {
 	heap_t *priority_queue;
 	char data[] = {
-		'a', 'b', 'c', 'd', 'e', 'f'
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'
 	};
 	size_t freq[] = {
-		6, 11, 12, 13, 16, 36
+		6, 80, 12, 13, 16, 36, 5, 10
 	};
 	size_t size = sizeof(data) / sizeof(data[0]);
 

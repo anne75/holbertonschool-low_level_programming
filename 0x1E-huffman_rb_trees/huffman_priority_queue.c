@@ -65,7 +65,6 @@ heap_t *huffman_priority_queue(char *data, size_t *freq, size_t size)
 	heap = heap_create(freq_cmp);
 	if (!heap)
 		return (NULL);
-	printf("created heap\n");
 	for (i = 0; i < size; ++i)
 	{
 		new = symbol_create(data[i], freq[i]);
@@ -74,7 +73,6 @@ heap_t *huffman_priority_queue(char *data, size_t *freq, size_t size)
 			heap_delete(heap, free_data);
 			return (NULL);
 		}
-		printf("created new %c %lu\n", new->data, new->freq);
 		node = binary_tree_node(NULL, (void *)new);
 		if (!node)
 		{
@@ -84,7 +82,5 @@ heap_t *huffman_priority_queue(char *data, size_t *freq, size_t size)
 		}
 		heap_insert(heap, (void *)node);
 	}
-	printf("heap size %lu\n", heap->size);
-	printf("heap root %c\n", ((symbol_t *)((binary_tree_node_t *)heap->root->data)->data)->data);
 	return (heap);
 }
