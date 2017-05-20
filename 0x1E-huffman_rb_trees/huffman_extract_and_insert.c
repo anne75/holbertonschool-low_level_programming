@@ -48,5 +48,5 @@ int huffman_extract_and_insert(heap_t *priority_queue)
 	new_s->freq = freq;
 	new_s->data = -1;
 	heap_insert(priority_queue, (void *)new_n);
-	return (0);
+	return (1);
 }
