@@ -47,13 +47,11 @@ int make_codes(binary_tree_node_t *tree, char building_char)
 
 	if (tree->left)
 	{
-		printf("going left\n");
 		code = building_char << 1;
 		make_codes(tree->left, code);
 	}
 	if (tree->right)
 	{
-		puts("going right");
 		code = (building_char << 1) | 1;
 		make_codes(tree->right, code);
 	}
@@ -87,10 +85,8 @@ int huffman_codes(char *data, size_t *freq, size_t size)
 	if (!data || !freq || size <= 0)
 		return (0);
 	tree = huffman_tree(data, freq, size);
-	puts("tree made");
 	if (!tree)
 		return (0);
-	puts("tree is not NULL");
 	ret = make_codes(tree, c);
 /*free binary tree*/
 	free_data(tree);
