@@ -18,7 +18,7 @@ int huffman_extract_and_insert(heap_t *priority_queue)
 		return (0);
 
 	if (priority_queue->size < 2)
-		return (0);
+		return (1);
 
 	new_n = malloc(sizeof(binary_tree_node_t));
 	if (!new_n)
