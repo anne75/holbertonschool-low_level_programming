@@ -1,6 +1,7 @@
-#Doubly linked list in C
+# Doubly linked list in C
 This project evolves around the manipulation of a doubly linked list of ints in C. The struct is given in the header file.   
 The following problems were solved:  
+
 0. Write a function that prints all the elements of a dlistint_t list.  
 1. Write a function that returns the number of elements in a linked dlistint_t list.  
 2. Write a function that adds a new node at the beginning of a dlistint_t list.  
