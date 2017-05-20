@@ -47,7 +47,7 @@ int main(void)
 {
 	heap_t *heap;
 	int array[] = {
-		34, 2, 45, 23, 76
+		34, 2, 45, 23, 76, 78, 1
 	};
 	size_t size = sizeof(array) / sizeof(array[0]);
 	size_t i;

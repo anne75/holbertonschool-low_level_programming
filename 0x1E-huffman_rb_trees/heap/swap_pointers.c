@@ -18,7 +18,7 @@ void set_parent(binary_tree_node_t *node1, binary_tree_node_t *node2)
 }
 
 /**
- * set_chld_parent - set left child node right after node2 left/right child
+ * set_child_parent - set left child node right after node2 left/right child
  * becomes node1's
  * @node1: node who got new left/right child
  */
