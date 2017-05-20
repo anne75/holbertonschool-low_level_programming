@@ -23,7 +23,7 @@ binary_tree_node_t *heapify_min(heap_t *heap, binary_tree_node_t *node)
 	{
 		if (heap->data_cmp(node->parent->data, node->data) > 0)
 		{
-			swap_node_pointers(node, node->parent);
+			swap_nodes(node, node->parent);
 			to_return = node;
 		}
 		else

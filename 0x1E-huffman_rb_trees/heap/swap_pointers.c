@@ -42,11 +42,6 @@ void swap_node_pointers(binary_tree_node_t *child, binary_tree_node_t *parent)
 	binary_tree_node_t *tmp;
 
 	child->parent = parent->parent,	parent->parent = child;
-	printf("child(%p): data(%d) left(%p) right(%p) parent(%p)\n",
-			       (void *)child, *((int *)child->data),
-			       (void *)child->left,
-			       (void *)child->right, (void *)child->parent);
-
 	if (child->parent)
 	{
 		if (child->parent->left == parent)
@@ -61,10 +56,6 @@ void swap_node_pointers(binary_tree_node_t *child, binary_tree_node_t *parent)
 		parent->left = tmp;
 		if (tmp)
 			tmp->parent = parent;
-	printf("child(%p): data(%d) left(%p) right(%p) parent(%p)\n",
-			       (void *)child, *((int *)child->data),
-			       (void *)child->left,
-			       (void *)child->right, (void *)child->parent);
 		tmp = child->right;
 		child->right = parent->right;
 		if (child->right)
@@ -72,14 +63,6 @@ void swap_node_pointers(binary_tree_node_t *child, binary_tree_node_t *parent)
 		parent->right = tmp;
 		if (tmp)
 			tmp->parent = parent;
-	printf("child(%p): data(%d) left(%p) right(%p) parent(%p)\n",
-			       (void *)child, *((int *)child->data),
-			       (void *)child->left,
-			       (void *)child->right, (void *)child->parent);
-	printf("parent(%p): data(%d) left(%p) right(%p) parent(%p)\n",
-			       (void *)parent, *((int *)parent->data),
-			       (void *)parent->left,
-			       (void *)parent->right, (void *)parent->parent);
 	}
 	else
 	{
@@ -96,7 +79,6 @@ void swap_node_pointers(binary_tree_node_t *child, binary_tree_node_t *parent)
 		if (tmp)
 			tmp->parent = parent;
 	}
-	puts("exit swap child parent");
 }
 
 /**
@@ -113,17 +95,14 @@ void swap_nodes(binary_tree_node_t *node1, binary_tree_node_t *node2)
 
 	if (node1->parent && node1->parent == node2)
 	{
-		printf("swap case 1: direct parent\n");
 		swap_node_pointers(node1, node2);
 	}
 	else if (node2->parent && node2->parent == node1)
 	{
-		printf("swap case 2: direct parent\n");
 		swap_node_pointers(node2, node1);
 	}
 	else
 	{
-		printf("swap case 3\n");
 		tmp_node = node1->parent;
 		node1->parent = node2->parent;
 		set_parent(node1, node2);

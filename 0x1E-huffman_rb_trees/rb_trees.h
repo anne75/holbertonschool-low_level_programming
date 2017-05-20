@@ -42,4 +42,15 @@ rb_tree_t *rb_tree_node(rb_tree_t *parent, int value, rb_color_t color);
 /*question 12 or 101*/
 int rb_tree_is_valid(const rb_tree_t *tree);
 
+/*question 13 or 102*/
+rb_tree_t *rb_tree_insert(rb_tree_t **tree, int value);
+void insert_red_parent_black_uncle(rb_tree_t *node, rb_tree_t **root);
+void insert_red_parent_red_uncle(rb_tree_t *node, rb_tree_t **root);
+
+/*question 14 or 103*/
+rb_tree_t *array_to_rb_tree(int *array, size_t size);
+
+/*question 15 or 104*/
+rb_tree_t *rb_tree_remove(rb_tree_t *root, int n);
+
 #endif

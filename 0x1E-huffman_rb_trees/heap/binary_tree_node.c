@@ -10,9 +10,6 @@ binary_tree_node_t *binary_tree_node(binary_tree_node_t *parent, void *data)
 {
 	binary_tree_node_t *new;
 
-/*	if (!data)
- *	return (NULL);
-*/
 	new = malloc(sizeof(binary_tree_node_t));
 	if (!new)
 		return (NULL);
@@ -39,5 +36,3 @@ binary_tree_node_t *binary_tree_node(binary_tree_node_t *parent, void *data)
 	}
 	return (new);
 }
-
-/* should I check if parent has a right child, and then what do I do ?*/
