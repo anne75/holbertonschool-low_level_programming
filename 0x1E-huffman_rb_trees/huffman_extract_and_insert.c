@@ -18,7 +18,7 @@ int huffman_extract_and_insert(heap_t *priority_queue)
 		return (0);
 
 	if (priority_queue->size < 2)
-		return (1);
+		return (0);
 
 	new_n = malloc(sizeof(binary_tree_node_t));
 	if (!new_n)
@@ -48,5 +48,5 @@ int huffman_extract_and_insert(heap_t *priority_queue)
 	new_s->freq = freq;
 	new_s->data = -1;
 	heap_insert(priority_queue, (void *)new_n);
-	return (1);
+	return (0);
 }
