@@ -29,7 +29,6 @@ int huffman_extract_and_insert(heap_t *priority_queue)
 		free(new_n);
 		return (0);
 	}
-	puts("calling heap extract");
 	new_n->data = (void *)new_s;
 	left = (binary_tree_node_t *)heap_extract(priority_queue);
 	right = (binary_tree_node_t *)heap_extract(priority_queue);
@@ -40,19 +39,14 @@ int huffman_extract_and_insert(heap_t *priority_queue)
 	if (right)
 		right->parent = new_n;
 	freq = 0;
-	puts("making freq");
 	if (left)
 		if (left->data)
 			freq += ((symbol_t *)(left->data))->freq;
-	printf("freq %lu\n", freq);
 	if (right)
 		if (right->data)
 			freq += ((symbol_t *)(right->data))->freq;
-	printf("freq %lu\n", freq);
 	new_s->freq = freq;
 	new_s->data = -1;
-	puts("insert into heap");
 	heap_insert(priority_queue, (void *)new_n);
-	printf("size of heap now %lu\n", priority_queue->size);
 	return (1);
 }
