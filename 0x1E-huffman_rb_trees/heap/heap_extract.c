@@ -15,7 +15,6 @@ void heapify_down(heap_t *heap)
 		return;
 
 	node = heap->root;
-	printf("enter heapify down for %p\n", (void *)node);
 	while (node->left)
 	{
 		if (node->right &&
@@ -24,7 +23,6 @@ void heapify_down(heap_t *heap)
 		    heap->data_cmp(node->data,
 				   node->left->data) > 0)
 		{
-			printf("heap down swap right\n");
 			swap_node_pointers(node->right, node);
 			if ((node - (heap->root)) == 0)
 /*compare pointer values with subtractions*/
@@ -33,15 +31,6 @@ void heapify_down(heap_t *heap)
 		else if (heap->data_cmp(node->left->data,
 					node->data) < 0)
 		{
-			printf("heap down swap_left\n");
-			printf("Node(%p): data(%d) left(%p) right(%p) parent(%p)\n",
-			       (void *)node, *((int *)node->data),
-			       (void *)node->left,
-			       (void *)node->right, (void *)node->parent);
-			printf("Node->left(%p): data(%d) left(%p) right(%p) parent(%p)\n",
-			       (void *)node->left, *((int *)node->left->data),
-			       (void *)node->left->left,
-			       (void *)node->left->right, (void *)node->left->parent);
 			swap_node_pointers(node->left, node);
 			if (((heap->root) - node) == 0)
 				heap->root = node->parent;
@@ -81,8 +70,7 @@ void *heap_extract(heap_t *heap)
 	if (node == heap->root)
 	{
 		free(node);
-		heap->root = NULL;
-		heap->size = 0;
+		heap->root = NULL, heap->size = 0;
 		return (data);
 	}
 	if ((node->parent)->left == node)
@@ -96,7 +84,6 @@ void *heap_extract(heap_t *heap)
 	heap->root = node;
 	free(tmp);
 	heap->size -= 1;
-	printf("extracted root, heapify down %p\n", (void *)node);
 	heapify_down(heap);
 	return (data);
 }

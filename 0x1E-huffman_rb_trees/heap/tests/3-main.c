@@ -80,5 +80,36 @@ int main(void)
 	printf("Extracted: %d\n", *extracted);
 	binary_tree_print(heap->root, print_int);
 	printf("Heap size: %lu\n", heap->size);
+
+	extracted = (int *)heap_extract(heap);
+	printf("Extracted: %d\n", *extracted);
+	binary_tree_print(heap->root, print_int);
+	printf("Heap size: %lu\n", heap->size);
+
+	extracted = (int *)heap_extract(heap);
+	printf("Extracted: %d\n", *extracted);
+	binary_tree_print(heap->root, print_int);
+	printf("Heap size: %lu\n", heap->size);
+
+	extracted = (int *)heap_extract(heap);
+	printf("Extracted: %d\n", *extracted);
+	if (heap->root)
+		binary_tree_print(heap->root, print_int);
+	printf("Heap size: %lu\n", heap->size);
+
+	puts("here");
+	extracted = (int *)heap_extract(heap);
+	printf("Extracted: %d\n", *extracted);
+	printf("is null %d\n", heap->root == NULL);
+	if (heap->root)
+		binary_tree_print(heap->root, print_int);
+	printf("Heap size: %lu\n", heap->size);
+
+	extracted = (int *)heap_extract(heap);
+	/*printf("Extracted: %d\n", *extracted);*/
+	if (heap->root)
+		binary_tree_print(heap->root, print_int);
+	printf("Heap size: %lu\n", heap->size);
+
 	return (EXIT_SUCCESS);
 }
