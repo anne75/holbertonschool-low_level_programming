@@ -3,7 +3,8 @@
 
 /**
  * free_binary_tree - frees a binary tree
- * free_data: function to state if the data must be freed (no if NULL)
+ * @node: root of binary tree
+ * @free_data: function to state if the data must be freed (no if NULL)
  */
 void free_binary_tree(binary_tree_node_t *node, void (*free_data)(void *))
 {
@@ -18,7 +19,8 @@ void free_binary_tree(binary_tree_node_t *node, void (*free_data)(void *))
 
 /**
  * heap_delete - frees a heap struct
- * free_data: function to state if the data must be freed (no if NULL)
+ * @heap: a heap structure
+ * @free_data: function to state if the data must be freed (no if NULL)
  */
 void heap_delete(heap_t *heap, void (*free_data)(void *))
 {
