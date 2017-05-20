@@ -97,15 +97,11 @@ int rb_tree_is_valid(const rb_tree_t *tree)
 		return (0);
 	if (tree->color != BLACK)
 		return (0);
-	puts("root was black");
 	if (!is_bst(tree, NULL, NULL))
 		return (0);
-	puts("was bst");
 	if (!is_right_colors(tree))
 		return (0);
-	puts("was right colors");
 	h = black_height(tree);
-	printf("black height %lu\n", h);
 	if (!is_path_constant(tree, h, 0))
 		return (0);
 	return (1);
