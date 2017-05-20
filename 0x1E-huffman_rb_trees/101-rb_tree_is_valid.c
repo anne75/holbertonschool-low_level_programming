@@ -68,7 +68,7 @@ size_t black_height(const rb_tree_t *tree)
  * @tree: a red black bst
  * @height: black height of the tree
  * @count: count of black nodes so far
- * Return : 1 if true, 0 if false
+ * Return: 1 if true, 0 if false
  */
 int is_path_constant(const rb_tree_t *tree, size_t height, size_t count)
 {
