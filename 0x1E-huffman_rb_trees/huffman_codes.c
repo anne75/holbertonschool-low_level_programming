@@ -19,12 +19,14 @@ void print_binary(char data, char c)
 	{
 		while (c > 0)
 		{
-			array[i++] = ((c & 1) == 0) ? '0' : '1';
+			array[i] = ((c & 1) == 0) ? '0' : '1';
 			c = (c >> 1);
+			++i;
 		}
 		/*reverse the array*/
 		--i;
-		for (j = 0; j < i / 2; ++j)
+		array[i--] = 0;
+		for (j = 0; j <= i / 2; ++j)
 		{
 			tmp = array[j];
 			array[j] = array[i - j];
@@ -81,7 +83,7 @@ int huffman_codes(char *data, size_t *freq, size_t size)
 	char c;
 	int ret;
 
-	c = '\0';
+	c = 1;
 	if (!data || !freq || size <= 0)
 		return (0);
 	tree = huffman_tree(data, freq, size);

@@ -40,10 +40,13 @@ int main(void)
 	char data[] = {
 		'a', 'b', 'c', 'd', 'e', 'f'
 	};
+	char data2[] = {'a'};
+	size_t freq2[] = {3};
 	size_t freq[] = {
-		6, 11, 12, 13, 16, 36
+		60, 40, 30, 20, 10, 1
 	};
 	size_t size = sizeof(data) / sizeof(data[0]);
+	size_t size2 = sizeof(data2) / sizeof(data2[0]);
 
 	priority_queue = huffman_priority_queue(data, freq, size);
 	if (!priority_queue)
@@ -52,26 +55,49 @@ int main(void)
 		return (EXIT_FAILURE);
 	}
 	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
 	printf("\n");
 
 	huffman_extract_and_insert(priority_queue);
 	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
 	printf("\n");
 
 	huffman_extract_and_insert(priority_queue);
 	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
 	printf("\n");
 
 	huffman_extract_and_insert(priority_queue);
 	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
 	printf("\n");
 
 	huffman_extract_and_insert(priority_queue);
 	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
 	printf("\n");
 
 	huffman_extract_and_insert(priority_queue);
 	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
+	puts("");
+
+	priority_queue = huffman_priority_queue(data2, freq2, size2);
+	if (!priority_queue)
+	{
+		fprintf(stderr, "Failed to create priority queue\n");
+		return (EXIT_FAILURE);
+	}
+	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
+	printf("\n");
+
+	huffman_extract_and_insert(priority_queue);
+	binary_tree_print(priority_queue->root, nested_print);
+	printf("size of queue %lu\n", priority_queue->size);
+	printf("\n");
+
 
 	return (EXIT_SUCCESS);
 }

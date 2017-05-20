@@ -14,7 +14,7 @@ int main(void)
 		'a', 'b', 'c', 'd', 'e', 'f'
 	};
 	size_t freq[] = {
-		6, 11, 12, 13, 16, 36
+		60, 40, 30, 20, 10, 1
 	};
 	size_t size = sizeof(data) / sizeof(data[0]);
 
