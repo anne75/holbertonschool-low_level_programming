@@ -21,7 +21,7 @@ void heapify_down(heap_t *heap)
 		    heap->data_cmp(node->right->data,
 				   node->left->data) < 0 &&
 		    heap->data_cmp(node->data,
-				   node->right->data) > 0)
+				   node->right->data) >= 0)
 		{
 			swap_nodes(node->right, node);
 			node = node->right;
