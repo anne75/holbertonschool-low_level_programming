@@ -12,10 +12,11 @@
  * @data: the data that was encoded
  * @c: a char, the code
  */
-void print_binary(char data, char c)
+void print_binary(char data, int c)
 {
 	char array[9] = {'\0'};
-	int i, j, tmp;
+	int i, j;
+	char tmp;
 
 	i = 0;
 	if (c == 0)
@@ -27,17 +28,18 @@ void print_binary(char data, char c)
 		while (c > 0)
 		{
 			array[i] = ((c & 1) == 0) ? '0' : '1';
-			c = (c >> 1);
 			++i;
+			c = c >> 1;
 		}
 		/*reverse the array*/
 		--i;
+		array[i--] = 0;
 		for (j = 0; j <= i / 2; ++j)
 		{
 			tmp = array[j];
 			array[j] = array[i - j];
 			array[i - j] = tmp;
-		}
+			}
 		printf("%c: %s\n", data, array);
 	}
 }
@@ -49,9 +51,10 @@ void print_binary(char data, char c)
  * @building_char: char used to create the code
  * Return: 1 on success 0 on failure
  */
-int make_codes(binary_tree_node_t *tree, char building_char)
+int make_codes(binary_tree_node_t *tree, int building_char)
 {
-	unsigned char code, data;
+	int code;
+	char data;
 
 	if (tree->left)
 	{
@@ -86,7 +89,7 @@ int make_codes(binary_tree_node_t *tree, char building_char)
 int huffman_codes(char *data, size_t *freq, size_t size)
 {
 	binary_tree_node_t *tree;
-	unsigned char c;
+	int c;
 	int ret;
 
 	if (!data || !freq || size <= 0)
@@ -94,7 +97,7 @@ int huffman_codes(char *data, size_t *freq, size_t size)
 	tree = huffman_tree(data, freq, size);
 	if (!tree)
 		return (0);
-	c = 0;
+	c = 1;
 	ret = make_codes(tree, c);
 /*free binary tree*/
 	free_data(tree);

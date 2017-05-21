@@ -15,6 +15,7 @@ int main(void)
 	};
 	size_t freq[] = {
 		4, 32, 5, 12, 68, 6, 11, 12, 1
+		/*1, 1, 1, 1, 1, 1, 1, 1, 1*/
 	};
 	size_t size = sizeof(data) / sizeof(data[0]);
 
