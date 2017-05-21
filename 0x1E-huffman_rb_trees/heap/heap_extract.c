@@ -1,5 +1,5 @@
 #include "heap.h"
-
+#include "../huffman.h"
 /**
  * heapify_down - dive the root to its normal place
  * @heap: heap struct
@@ -21,24 +21,18 @@ void heapify_down(heap_t *heap)
 		    heap->data_cmp(node->right->data,
 				   node->left->data) < 0 &&
 		    heap->data_cmp(node->data,
-				   node->left->data) > 0)
+				   node->right->data) > 0)
 		{
-			swap_node_pointers(node->right, node);
-			if ((node - (heap->root)) == 0)
-/*compare pointer values with subtractions*/
-				heap->root = node->parent;
+			swap_nodes(node->right, node);
+			node = node->right;
+			continue;
 		}
 		else if (heap->data_cmp(node->left->data,
-					node->data) < 0)
+					node->data) <= 0)
 		{
-			swap_node_pointers(node->left, node);
-			if (((heap->root) - node) == 0)
-				heap->root = node->parent;
+			swap_nodes(node->left, node);
 		}
-		else
-		{
-			node = node->left;
-		}
+		node = node->left;
 	}
 }
 
@@ -50,14 +44,13 @@ void heapify_down(heap_t *heap)
 void *heap_extract(heap_t *heap)
 {
 	queue_t *queue;
-	binary_tree_node_t *node, *tmp;
+	binary_tree_node_t *node;
 	void *data;
 
 	if (!heap)
 		return (NULL);
 	if (!(heap->root))
 		return (NULL);
-
 	queue = NULL;
 	enqueue(&queue, heap->root);
 	while (queue)
@@ -73,17 +66,23 @@ void *heap_extract(heap_t *heap)
 		heap->root = NULL, heap->size = 0;
 		return (data);
 	}
+
 	if ((node->parent)->left == node)
 		(node->parent)->left = NULL;
 	else
 		(node->parent)->right = NULL;
 /*prepare swapping with the root, as we remove the root*/
-	node->parent = NULL;
-	tmp = heap->root;
-	swap_nodes(tmp, node);
-	heap->root = node;
-	free(tmp);
+	swap_nodes(heap->root, node);
+	free(node);
 	heap->size -= 1;
 	heapify_down(heap);
 	return (data);
 }
+
+/*
+ *printf("value %c %lu\n",
+ *((symbol_t *)((binary_tree_node_t *)
+ *(node->data))->data)->data,
+ *((symbol_t *)((binary_tree_node_t *)(node->data))
+ *->data)->freq);
+ */

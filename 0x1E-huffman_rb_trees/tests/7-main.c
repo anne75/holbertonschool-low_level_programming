@@ -38,15 +38,12 @@ int main(void)
 {
 	heap_t *priority_queue;
 	char data[] = {
-		'a', 'b', 'c', 'd', 'e', 'f'
+		'H', 'o', 'l', 'b', 'e', 'r', 't', 'o', 'n'
 	};
-	char data2[] = {'a'};
-	size_t freq2[] = {3};
 	size_t freq[] = {
-		60, 40, 30, 20, 10, 1
+		4, 32, 5, 12, 68, 6, 11, 12, 1
 	};
 	size_t size = sizeof(data) / sizeof(data[0]);
-	size_t size2 = sizeof(data2) / sizeof(data2[0]);
 
 	priority_queue = huffman_priority_queue(data, freq, size);
 	if (!priority_queue)
@@ -72,7 +69,7 @@ int main(void)
 	binary_tree_print(priority_queue->root, nested_print);
 	printf("size of queue %lu\n", priority_queue->size);
 	printf("\n");
-
+/*
 	huffman_extract_and_insert(priority_queue);
 	binary_tree_print(priority_queue->root, nested_print);
 	printf("size of queue %lu\n", priority_queue->size);
@@ -97,7 +94,7 @@ int main(void)
 	binary_tree_print(priority_queue->root, nested_print);
 	printf("size of queue %lu\n", priority_queue->size);
 	printf("\n");
-
+*/
 
 	return (EXIT_SUCCESS);
 }

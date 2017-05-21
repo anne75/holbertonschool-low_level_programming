@@ -1,5 +1,5 @@
 #include "heap.h"
-
+#include "../huffman.h"
 /*
  *	printf("Node1(%p): data(%d) left(%p) right(%p) parent(%p)\n",
  *	       (void *)node1, *((int *)node1->data),
@@ -24,14 +24,11 @@ binary_tree_node_t *heapify_min(heap_t *heap, binary_tree_node_t *node)
 		if (heap->data_cmp(node->parent->data, node->data) > 0)
 		{
 			swap_nodes(node, node->parent);
-			to_return = node;
+/*to_return = node;*/
 		}
-		else
-		{
-			node = node->parent;
-		}
+node = node->parent;
 	}
-	heap->root = node;
+/*heap->root = node;*/
 	return (to_return);
 }
 
