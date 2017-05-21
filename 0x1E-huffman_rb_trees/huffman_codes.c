@@ -1,5 +1,12 @@
 #include "huffman.h"
 
+/*
+ * this way of doing only works for a linear tree turning to the right, so only
+ * one code starts with a 0. Otherwise my idea was to add a 1 to the front and
+ * to remove it in the end but in that case, the codes need more than 1 byte
+ * to hold in worst case scenario
+ */
+
 /**
  * print_binary - print a char in binary format
  * @data: the data that was encoded
@@ -25,7 +32,7 @@ void print_binary(char data, char c)
 		}
 		/*reverse the array*/
 		--i;
-		array[i--] = 0;
+		printf("i %i\n", i);
 		for (j = 0; j <= i / 2; ++j)
 		{
 			tmp = array[j];
@@ -45,7 +52,7 @@ void print_binary(char data, char c)
  */
 int make_codes(binary_tree_node_t *tree, char building_char)
 {
-	char code, data;
+	unsigned char code, data;
 
 	if (tree->left)
 	{
@@ -64,6 +71,7 @@ int make_codes(binary_tree_node_t *tree, char building_char)
 			data = ((symbol_t *)tree->data)->data;
 		else
 			return (0);
+		printf("raw %d %u\n", data, building_char);
 		print_binary(data, building_char);
 	}
 	return (1);
@@ -80,15 +88,15 @@ int make_codes(binary_tree_node_t *tree, char building_char)
 int huffman_codes(char *data, size_t *freq, size_t size)
 {
 	binary_tree_node_t *tree;
-	char c;
+	unsigned char c;
 	int ret;
 
-	c = 1;
 	if (!data || !freq || size <= 0)
 		return (0);
 	tree = huffman_tree(data, freq, size);
 	if (!tree)
 		return (0);
+	c = 0;
 	ret = make_codes(tree, c);
 /*free binary tree*/
 	free_data(tree);
