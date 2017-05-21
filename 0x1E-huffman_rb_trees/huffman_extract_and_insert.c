@@ -39,6 +39,7 @@ int huffman_extract_and_insert(heap_t *priority_queue)
 	if (right)
 		right->parent = new_n;
 	freq = 0;
+	new_n->parent = NULL;
 	if (left)
 		if (left->data)
 			freq += ((symbol_t *)(left->data))->freq;
