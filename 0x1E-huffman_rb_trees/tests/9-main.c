@@ -11,10 +11,10 @@
 int main(void)
 {
 	char data[] = {
-		'a', 'b', 'c', 'd', 'e', 'f'
+		'H', 'o', 'l', 'b', 'e', 'r', 't', 'o', 'n'
 	};
 	size_t freq[] = {
-		60, 40, 30, 20, 10, 1
+		4, 32, 5, 12, 68, 6, 11, 12, 1
 	};
 	size_t size = sizeof(data) / sizeof(data[0]);
 
