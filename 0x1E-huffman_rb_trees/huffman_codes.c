@@ -32,7 +32,6 @@ void print_binary(char data, char c)
 		}
 		/*reverse the array*/
 		--i;
-		printf("i %i\n", i);
 		for (j = 0; j <= i / 2; ++j)
 		{
 			tmp = array[j];
@@ -71,7 +70,6 @@ int make_codes(binary_tree_node_t *tree, char building_char)
 			data = ((symbol_t *)tree->data)->data;
 		else
 			return (0);
-		printf("raw %d %u\n", data, building_char);
 		print_binary(data, building_char);
 	}
 	return (1);
