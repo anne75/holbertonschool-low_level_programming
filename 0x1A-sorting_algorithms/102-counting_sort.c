@@ -34,6 +34,9 @@ void counting_sort(int *array, size_t size)
 	int *counts, *aux, size_counts, i;
 	size_t j;
 
+	if (!array)
+		return;
+
 	size_counts = _max(array, size) + 1;
 	counts = malloc(sizeof(int) * size_counts);
 	if (!counts)
